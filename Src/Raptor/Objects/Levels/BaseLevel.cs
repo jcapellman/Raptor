@@ -1,9 +1,11 @@
 using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 using Newtonsoft.Json;
+
 using Raptor.Android.Objects.Planes;
 using Raptor.Android.Objects.Tiles;
 

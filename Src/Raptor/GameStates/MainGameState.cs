@@ -1,10 +1,12 @@
+using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 
 using Raptor.Android.Objects.Levels;
-using Raptor.Android.Objects.Planes;
+using Raptor.Android.Objects.Sprites;
 using Raptor.PCL.Enums;
 
 namespace Raptor.Android.GameStates {
@@ -21,6 +23,20 @@ namespace Raptor.Android.GameStates {
 
         public override void Update(GameTime gameTime) {
             _currentLevel.Update();
+
+            var newBullet = _baseBullet;
+
+            newBullet.Position(_currentLevel._playerFighter.GetPosition().X, _currentLevel._playerFighter.GetPosition().Y + 2);
+
+            _playerBullets.Add(newBullet);
+
+            for (var x = 0; x < _playerBullets.Count; x++) {
+                if (_playerBullets[x].GetPosition().Y > GlobalGame.WINDOW_HEIGHT) {
+                    _playerBullets.RemoveAt(x);
+                } else {
+                    _playerBullets[x].Update();
+                }
+            }
 
             var desiredVelocity = new Vector2();
 
@@ -43,19 +59,27 @@ namespace Raptor.Android.GameStates {
         }
 
         private BaseLevel _currentLevel;
+        private readonly List<PlayerBullet> _playerBullets = new List<PlayerBullet>();
+        private PlayerBullet _baseBullet;
 
         public override void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
 
-            _currentLevel = new E1M1(contentManager);            
+            _baseBullet = new PlayerBullet(contentManager);
+
+            _currentLevel = new E1M1(contentManager);
         }
 
         public override void Render() {
             _spriteBatch.Begin();
-            
+
             _currentLevel.Draw(_spriteBatch);
-            
-            DrawText($"Score: 0", 14, TEXT_HORIZONTAL_ALIGNMENT.CENTER, TEXT_VERTICAL_ALIGNMENT.TOP, Color.White);
+
+            DrawText($"Score: 0", new Vector2((GlobalGame.WINDOW_WIDTH / 2), GlobalGame.WINDOW_HEIGHT - 60),  Color.White, 8.0f, null);
+
+            foreach (var bullet in _playerBullets) {
+                bullet.Draw(_spriteBatch);
+            }
 
             _spriteBatch.End();
         }

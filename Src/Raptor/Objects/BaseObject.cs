@@ -7,6 +7,7 @@ namespace Raptor.Android.Objects {
         public abstract string GetTextureName();
 
         private Vector2 _position { get; set; }
+        internal Vector2 _velocity { get; set; }
 
         internal readonly Texture2D _texture;        
 
@@ -22,7 +23,8 @@ namespace Raptor.Android.Objects {
         public Vector2 GetPosition() => _position;
 
         protected BaseObject(ContentManager cManager, string textureName = null) {            
-            _texture = cManager.Load<Texture2D>(textureName ?? GetTextureName());            
+            _texture = cManager.Load<Texture2D>(textureName ?? GetTextureName());
+            _velocity = new Vector2();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch) {

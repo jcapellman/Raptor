@@ -5,7 +5,6 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 
-using Raptor.Android.Objects.Planes;
 using Raptor.PCL.Enums;
 
 namespace Raptor.Android.GameStates {
