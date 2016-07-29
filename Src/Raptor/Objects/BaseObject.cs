@@ -7,9 +7,10 @@ namespace Raptor.Android.Objects {
         public abstract string GetTextureName();
 
         private Vector2 _position { get; set; }
+
         internal Vector2 _velocity { get; set; }
 
-        internal readonly Texture2D _texture;        
+        internal readonly Texture2D _texture;
 
         public void Position(float x, float y, bool append = true) {
             if (append) {
@@ -17,13 +18,27 @@ namespace Raptor.Android.Objects {
                 y += _position.Y;
             }
 
-            _position = new Vector2(x, y);            
+            _position = new Vector2(x, y);
         }
 
         public Vector2 GetPosition() => _position;
 
-        protected BaseObject(ContentManager cManager, string textureName = null) {            
-            _texture = cManager.Load<Texture2D>(textureName ?? GetTextureName());
+        private Rectangle GetRectange() {
+            return new Rectangle((int)GetPosition().X, (int)GetPosition().Y, _texture.Width, _texture.Height);
+        }
+
+        public virtual bool GetCollision(Rectangle other) {
+            var bounds = GetRectange();
+
+            return (bounds.Right >= other.Left && bounds.Left < other.Right ||
+                    bounds.Left <= other.Right && bounds.Right > other.Left) &&
+                   (bounds.Bottom >= other.Top && bounds.Top < other.Bottom ||
+                    bounds.Top <= other.Bottom && bounds.Bottom > other.Top);
+        }
+
+        protected BaseObject(ContentManager cManager, Texture2D texture = null, string textureName = null) {
+            _texture = texture ?? cManager.Load<Texture2D>(textureName ?? GetTextureName());
+
             _velocity = new Vector2();
         }
 
@@ -32,5 +47,7 @@ namespace Raptor.Android.Objects {
         }
 
         public virtual void Update() { }
+
+        public Texture2D GetTexture() => _texture;
     }
 }

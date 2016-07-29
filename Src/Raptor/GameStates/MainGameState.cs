@@ -24,9 +24,9 @@ namespace Raptor.Android.GameStates {
         public override void Update(GameTime gameTime) {
             _currentLevel.Update();
 
-            var newBullet = _baseBullet;
+            var newBullet = new PlayerBullet(null, _baseBullet.GetTexture());
 
-            newBullet.Position(_currentLevel._playerFighter.GetPosition().X, _currentLevel._playerFighter.GetPosition().Y + 2);
+            newBullet.Position(_currentLevel._playerFighter.GetPosition().X + _currentLevel._playerFighter._texture.Width / 2, _currentLevel._playerFighter.GetPosition().Y + 2, false);
 
             _playerBullets.Add(newBullet);
 

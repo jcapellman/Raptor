@@ -6,7 +6,7 @@ namespace Raptor.Android.Objects.Tiles {
     public class BaseTile : BaseObject {
         private readonly string _textureName;
 
-        public BaseTile(ContentManager cManager, string tileName) : base(cManager, $"Tiles/{tileName}") {
+        public BaseTile(ContentManager cManager, string tileName) : base(cManager, null, $"Tiles/{tileName}") {
             _textureName = tileName;
         }
 
