@@ -21,6 +21,9 @@ namespace Raptor.Android {
             _graphics.PreferredBackBufferWidth = 800;
             _graphics.PreferredBackBufferHeight = 480;
             _graphics.SupportedOrientations = DisplayOrientation.LandscapeLeft | DisplayOrientation.LandscapeRight;
+
+            GlobalGame.WINDOW_HEIGHT = Window.ClientBounds.Height;
+            GlobalGame.WINDOW_WIDTH = Window.ClientBounds.Width;
         }
 
         private void _currentGameState_OnChangeState(object sender, BaseGameState.GameStateArgs e) {

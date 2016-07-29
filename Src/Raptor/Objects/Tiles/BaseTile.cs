@@ -1,3 +1,4 @@
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -14,9 +15,9 @@ namespace Raptor.Android.Objects.Tiles {
         }
 
         public override string GetTextureName() => $"Tiles/{_textureName}";
-
+        
         public override void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(_texture, GetPosition());
+            spriteBatch.Draw(_texture, new Rectangle(0, (int) GetPosition().Y, GlobalGame.WINDOW_WIDTH, GlobalGame.WINDOW_HEIGHT), Color.White);
         }
     }
 }

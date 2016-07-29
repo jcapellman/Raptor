@@ -16,13 +16,13 @@ namespace Raptor.Android.Objects.Levels {
         internal void AddTile(ContentManager cManager, string tileName) {
             var tile = new BaseTile(cManager, tileName);
 
-            tile.Position(0, _tiles.Count * 256);
+            tile.Position(0, -_tiles.Count * 1024);
 
             _tiles.Add(tile);
         }
 
         protected BaseLevel(ContentManager cManager, string levelJSON) {
-            var tiles = (string[]) JsonConvert.DeserializeObject(levelJSON);
+            var tiles = JsonConvert.DeserializeObject<List<string>>(levelJSON);
 
             foreach (var tile in tiles) {
                 AddTile(cManager, tile);
