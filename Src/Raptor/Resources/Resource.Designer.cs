@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("Raptor.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("Raptor.Android.Resource", IsApplication=true)]
 
-namespace Raptor
+namespace Raptor.Android
 {
 	
 	
