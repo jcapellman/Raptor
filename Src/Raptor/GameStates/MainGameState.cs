@@ -30,8 +30,8 @@ namespace Raptor.Android.GameStates {
                 return;
             }
 
-            desiredVelocity.X = touchCollection[0].Position.X - _playerFighter.GetPosition().X;
-            desiredVelocity.Y = touchCollection[0].Position.Y - _playerFighter.GetPosition().Y;
+            desiredVelocity.X = touchCollection[0].Position.X - _currentLevel.PlayerPosition.X;
+            desiredVelocity.Y = touchCollection[0].Position.Y - _currentLevel.PlayerPosition.Y;
 
             if (desiredVelocity.X != 0 || desiredVelocity.Y != 0) {
                 desiredVelocity.Normalize();
@@ -39,7 +39,7 @@ namespace Raptor.Android.GameStates {
                 desiredVelocity *= desiredSpeed;
             }
 
-            _playerFighter.Position(desiredVelocity.X * (float)gameTime.ElapsedGameTime.TotalSeconds, desiredVelocity.Y * (float)gameTime.ElapsedGameTime.TotalSeconds);
+            _currentLevel._playerFighter.Position(desiredVelocity.X * (float)gameTime.ElapsedGameTime.TotalSeconds, desiredVelocity.Y * (float)gameTime.ElapsedGameTime.TotalSeconds);
         }
 
         private BaseLevel _currentLevel;
@@ -47,18 +47,14 @@ namespace Raptor.Android.GameStates {
         public override void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
 
-            _currentLevel = new E1M1(contentManager);
-
-            _playerFighter = new F22(contentManager);
+            _currentLevel = new E1M1(contentManager);            
         }
 
         public override void Render() {
             _spriteBatch.Begin();
             
             _currentLevel.Draw(_spriteBatch);
-
-            _playerFighter.Draw(_spriteBatch);
-
+            
             DrawText($"Score: 0", 14, TEXT_HORIZONTAL_ALIGNMENT.CENTER, TEXT_VERTICAL_ALIGNMENT.TOP, Color.White);
 
             _spriteBatch.End();

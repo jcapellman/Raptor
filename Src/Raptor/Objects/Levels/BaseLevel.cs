@@ -1,15 +1,17 @@
 using System.Collections.Generic;
-
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
 using Newtonsoft.Json;
-
+using Raptor.Android.Objects.Planes;
 using Raptor.Android.Objects.Tiles;
 
 namespace Raptor.Android.Objects.Levels {
     public abstract class BaseLevel {
         public abstract string Name();
+
+        internal BasePlane _playerFighter;
 
         private readonly List<BaseTile> _tiles = new List<BaseTile>();
 
@@ -39,6 +41,10 @@ namespace Raptor.Android.Objects.Levels {
             foreach (var tile in _tiles) {
                 tile.Draw(spriteBatch);
             }
+
+            _playerFighter.Draw(spriteBatch);
         }
+
+        public Vector2 PlayerPosition => _playerFighter.GetPosition();
     }
 }

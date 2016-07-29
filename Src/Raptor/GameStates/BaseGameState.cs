@@ -221,7 +221,5 @@ namespace Raptor.Android.GameStates {
         }
 
         public abstract void Update(GameTime gameTime);
-
-        internal BasePlane _playerFighter;
     }
 }
