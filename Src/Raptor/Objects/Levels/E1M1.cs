@@ -4,6 +4,8 @@ namespace Raptor.Android.Objects.Levels {
     public class E1M1 : BaseLevel {
         public override string Name() => "E1M1";
 
-        public E1M1(ContentManager cManager) : base(cManager, "Stone") { }
+        private const string LEVELJSON = "[\"Stone\", \"Stone\"]";
+
+        public E1M1(ContentManager cManager) : base(cManager, LEVELJSON) { }
     }
 }

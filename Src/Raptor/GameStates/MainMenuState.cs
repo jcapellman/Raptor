@@ -14,7 +14,7 @@ namespace Raptor.Android.GameStates {
 
         public override bool IsLocked() => _isLocked;
 
-        public override void HandleInput(GameTime gameTime) { }
+        public override void Update(GameTime gameTime) { }
 
         public MainMenuState(SpriteBatch spriteBatch, GameWindow window, GraphicsDeviceManager graphics) : base(spriteBatch, window, graphics) { }
 

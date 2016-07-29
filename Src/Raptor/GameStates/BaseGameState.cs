@@ -220,7 +220,7 @@ namespace Raptor.Android.GameStates {
             _spriteBatch.DrawString(_gameFont, text, position.Value, Color.White, 0, origin.Value, size, SpriteEffects.None, 0.5f);
         }
 
-        public abstract void HandleInput(GameTime gameTime);
+        public abstract void Update(GameTime gameTime);
 
         internal BasePlane _playerFighter;
     }

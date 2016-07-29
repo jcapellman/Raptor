@@ -19,7 +19,9 @@ namespace Raptor.Android.GameStates {
             return false;
         }
 
-        public override void HandleInput(GameTime gameTime) {
+        public override void Update(GameTime gameTime) {
+            _currentLevel.Update();
+
             var desiredVelocity = new Vector2();
 
             var touchCollection = TouchPanel.GetState();

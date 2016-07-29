@@ -58,7 +58,7 @@ namespace Raptor.Android {
                 return;
             }
 
-            _currentGameState.HandleInput(gameTime);
+            _currentGameState.Update(gameTime);
 
             base.Update(gameTime);
         }
