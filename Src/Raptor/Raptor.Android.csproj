@@ -64,8 +64,12 @@
     <Compile Include="GameStates\MainGameState.cs" />
     <Compile Include="GameStates\MainMenuState.cs" />
     <Compile Include="Objects\BaseObject.cs" />
+    <Compile Include="Objects\Levels\BaseLevel.cs" />
+    <Compile Include="Objects\Levels\E1M1.cs" />
     <Compile Include="Objects\Planes\BasePlane.cs" />
     <Compile Include="Objects\Planes\F22.cs" />
+    <Compile Include="Objects\Tiles\BaseTile.cs" />
+    <Compile Include="Objects\Tiles\StaticTile.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

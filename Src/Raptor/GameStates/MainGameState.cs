@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 
+using Raptor.Android.Objects.Levels;
 using Raptor.Android.Objects.Planes;
 using Raptor.PCL.Enums;
 
@@ -39,18 +40,24 @@ namespace Raptor.Android.GameStates {
             _playerFighter.Position(desiredVelocity.X * (float)gameTime.ElapsedGameTime.TotalSeconds, desiredVelocity.Y * (float)gameTime.ElapsedGameTime.TotalSeconds);
         }
 
+        private BaseLevel _currentLevel;
+
         public override void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
+
+            _currentLevel = new E1M1(contentManager);
 
             _playerFighter = new F22(contentManager);
         }
 
         public override void Render() {
             _spriteBatch.Begin();
-
-            DrawText($"Score: 0", 14, TEXT_HORIZONTAL_ALIGNMENT.CENTER, TEXT_VERTICAL_ALIGNMENT.TOP, Color.White);
+            
+            _currentLevel.Draw(_spriteBatch);
 
             _playerFighter.Draw(_spriteBatch);
+
+            DrawText($"Score: 0", 14, TEXT_HORIZONTAL_ALIGNMENT.CENTER, TEXT_VERTICAL_ALIGNMENT.TOP, Color.White);
 
             _spriteBatch.End();
         }

@@ -8,7 +8,8 @@ namespace Raptor.Android.Objects {
 
         private Vector2 _position { get; set; }
 
-        private readonly Texture2D _texture;        
+        private readonly Texture2D _texture;
+        
 
         public void Position(float x, float y, bool append = true) {
             if (append) {
@@ -21,8 +22,8 @@ namespace Raptor.Android.Objects {
 
         public Vector2 GetPosition() => _position;
 
-        protected BaseObject(ContentManager cManager) {            
-            _texture = cManager.Load<Texture2D>(GetTextureName());            
+        protected BaseObject(ContentManager cManager, string textureName = null) {            
+            _texture = cManager.Load<Texture2D>(textureName ?? GetTextureName());            
         }
 
         public virtual void Draw(SpriteBatch spriteBatch) {
