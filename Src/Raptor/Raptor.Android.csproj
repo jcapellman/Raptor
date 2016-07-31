@@ -71,6 +71,7 @@
     <Compile Include="Objects\BaseObject.cs" />
     <Compile Include="Objects\Levels\BaseLevel.cs" />
     <Compile Include="Objects\Levels\E1M1.cs" />
+    <Compile Include="Objects\Menu\MainMenuAnimation.cs" />
     <Compile Include="Objects\Planes\BasePlane.cs" />
     <Compile Include="Objects\Planes\F22.cs" />
     <Compile Include="Objects\Sprites\BaseSprite.cs" />

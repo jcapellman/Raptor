@@ -12,6 +12,8 @@ namespace Raptor.Android.Objects {
 
         internal readonly Texture2D _texture;
 
+        internal bool IsFullScreen = false;
+
         public void Position(float x, float y, bool append = true) {
             if (append) {
                 x += _position.X;
@@ -43,7 +45,12 @@ namespace Raptor.Android.Objects {
         }
 
         public virtual void Draw(SpriteBatch spriteBatch) {
-            spriteBatch.Draw(_texture, _position);
+            if (IsFullScreen) {
+                spriteBatch.Draw(_texture,
+                    destinationRectangle: new Rectangle(0, 0, GlobalGame.WINDOW_WIDTH, GlobalGame.WINDOW_HEIGHT));
+            } else {
+                spriteBatch.Draw(_texture, _position);
+            }
         }
 
         public virtual void Update() { }

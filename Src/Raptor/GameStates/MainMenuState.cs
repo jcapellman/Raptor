@@ -1,7 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-
+using Raptor.Android.Objects.Menu;
 using Raptor.PCL.Enums;
 
 namespace Raptor.Android.GameStates {
@@ -18,11 +18,14 @@ namespace Raptor.Android.GameStates {
 
         public MainMenuState(SpriteBatch spriteBatch, GameWindow window, GraphicsDeviceManager graphics) : base(spriteBatch, window, graphics) { }
 
+        private MainMenuAnimation _mainMenuAni;
+
         public override void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
-            LoadBackground(contentManager);
             
-            ChangeState(GAME_STATES.MAIN_GAME);
+            _mainMenuAni = new MainMenuAnimation(contentManager, null, "MainMenu");    
+            
+          //  ChangeState(GAME_STATES.MAIN_GAME);
         }
 
         private int increment = 0;
@@ -44,7 +47,7 @@ namespace Raptor.Android.GameStates {
         public override void Render() {
             _spriteBatch.Begin();
 
-            DrawBackground();
+            _mainMenuAni.Draw(_spriteBatch);
 
             if (IsLocked()) {
                 RenderLoadingIndicator();
