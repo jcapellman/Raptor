@@ -76,6 +76,7 @@
     <Compile Include="Objects\Planes\F22.cs" />
     <Compile Include="Objects\Sprites\BaseSprite.cs" />
     <Compile Include="Objects\Sprites\PlayerBullet.cs" />
+    <Compile Include="Objects\TextObject.cs" />
     <Compile Include="Objects\Tiles\BaseTile.cs" />
     <Compile Include="Objects\Tiles\StaticTile.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />

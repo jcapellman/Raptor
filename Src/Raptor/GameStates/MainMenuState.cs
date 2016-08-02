@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Raptor.Android.Objects;
 using Raptor.Android.Objects.Menu;
 using Raptor.PCL.Enums;
 
@@ -25,11 +26,14 @@ namespace Raptor.Android.GameStates {
             
             _mainMenuAni = new MainMenuAnimation(contentManager, null, "MainMenu");    
             
+            _toLoading = new TextObject(_gameFont, "LOADING", null, Color.White, 5.0f, null);
+
           //  ChangeState(GAME_STATES.MAIN_GAME);
         }
 
         private int increment = 0;
         private string loadingText = "LOADING";
+        private TextObject _toLoading;
 
         private void RenderLoadingIndicator() {
             if (increment == 100) {
@@ -53,7 +57,7 @@ namespace Raptor.Android.GameStates {
                 RenderLoadingIndicator();
             }
 
-            DrawText(loadingText, null, Color.White, 5.0f, null);
+            _toLoading.DrawText(_spriteBatch);
 
             _spriteBatch.End();
         }

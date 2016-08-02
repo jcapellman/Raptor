@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input.Touch;
 
+using Raptor.Android.Objects;
 using Raptor.Android.Objects.Levels;
 using Raptor.Android.Objects.Sprites;
 using Raptor.PCL.Enums;
@@ -61,6 +62,7 @@ namespace Raptor.Android.GameStates {
         private BaseLevel _currentLevel;
         private readonly List<PlayerBullet> _playerBullets = new List<PlayerBullet>();
         private PlayerBullet _baseBullet;
+        private TextObject _toScore;
 
         public override void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
@@ -68,6 +70,8 @@ namespace Raptor.Android.GameStates {
             _baseBullet = new PlayerBullet(contentManager);
 
             _currentLevel = new E1M1(contentManager);
+
+            _toScore = new TextObject(_gameFont, "Score: 0", null, Color.White, 14.0f, null);
         }
 
         public override void Render() {
@@ -75,7 +79,7 @@ namespace Raptor.Android.GameStates {
 
             _currentLevel.Draw(_spriteBatch);
 
-            DrawText($"Score: 0", new Vector2((GlobalGame.WINDOW_WIDTH / 2), GlobalGame.WINDOW_HEIGHT - 60),  Color.White, 8.0f, null);
+            _toScore.DrawText(_spriteBatch);
 
             foreach (var bullet in _playerBullets) {
                 bullet.Draw(_spriteBatch);
