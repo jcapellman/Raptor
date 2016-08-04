@@ -124,7 +124,7 @@
     <BundleResource Include="GameThumbnail.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raptor.GameEngine\Raptor.GameEngine.PCL.csproj">
+    <ProjectReference Include="..\Raptor.GameEngine.PCL\Raptor.GameEngine.PCL.csproj">
       <Project>{3CFDD177-2F0D-48C1-87D1-8D274DFC3DE7}</Project>
       <Name>Raptor.GameEngine.PCL</Name>
     </ProjectReference>

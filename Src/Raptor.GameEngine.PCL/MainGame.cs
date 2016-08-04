@@ -1,8 +1,9 @@
 using System;
 using System.Reflection;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
-using Raptor.Android;
+
 using Raptor.GameEngine.PCL.GameStates;
 using Raptor.PCL.Enums;
 
@@ -35,9 +36,8 @@ namespace Raptor.GameEngine.PCL {
             changeGameState(GAME_STATES.MAIN_MENU);
         }
 
-        private void changeGameState(GAME_STATES gameState)
-        {
-            var types = typeof (BaseGameState).GetTypeInfo().Assembly.DefinedTypes;
+        private void changeGameState(GAME_STATES gameState) {
+            var types = typeof(BaseGameState).GetTypeInfo().Assembly.DefinedTypes;
 
             foreach (var type in types) {
                 if (!type.IsSubclassOf(typeof(BaseGameState)) || type.IsAbstract) {

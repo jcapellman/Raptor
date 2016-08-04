@@ -1,0 +1,27 @@
+{
+  "version": 2,
+  "exports": {
+    "Raptor.PCL/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.5",
+      "compile": {
+        "bin/Debug/Raptor.PCL.dll": {}
+      },
+      "runtime": {
+        "bin/Debug/Raptor.PCL.dll": {}
+      }
+    },
+    "Raptor.WebAPI.DataLayer/1.0.0": {
+      "type": "project",
+      "framework": ".NETFramework,Version=v4.6.2",
+      "compile": {
+        "bin/Debug/Raptor.WebAPI.DataLayer.dll": {}
+      },
+      "runtime": {
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
+        "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
+        "bin/Debug/Raptor.WebAPI.DataLayer.dll": {}
+      }
+    }
+  }
+}

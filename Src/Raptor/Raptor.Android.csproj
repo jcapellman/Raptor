@@ -92,7 +92,7 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raptor.GameEngine\Raptor.GameEngine.PCL.csproj">
+    <ProjectReference Include="..\Raptor.GameEngine.PCL\Raptor.GameEngine.PCL.csproj">
       <Project>{3cfdd177-2f0d-48c1-87d1-8d274dfc3de7}</Project>
       <Name>Raptor.GameEngine.PCL</Name>
     </ProjectReference>
