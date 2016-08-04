@@ -10,7 +10,7 @@ namespace Raptor.Android.Objects {
         private readonly float _size;
         private readonly string _text;
 
-        public TextObject(SpriteFont font, string text, Vector2? position, Color color, float size, Vector2? origin) {
+        public TextObject(SpriteFont font, string text, Color color, Vector2? position = null, float size = 5.0f, Vector2? origin = null) {
             _font = font;
 
             _color = color;

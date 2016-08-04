@@ -71,7 +71,7 @@ namespace Raptor.Android.GameStates {
 
             _currentLevel = new E1M1(contentManager);
 
-            _toScore = new TextObject(_gameFont, "Score: 0", null, Color.White, 14.0f, null);
+            _toScore = new TextObject(_gameFont, "Score: 0", Color.White, size: 14.0f);
         }
 
         public override void Render() {

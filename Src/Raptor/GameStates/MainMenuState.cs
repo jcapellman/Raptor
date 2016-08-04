@@ -1,6 +1,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+
 using Raptor.Android.Objects;
 using Raptor.Android.Objects.Menu;
 using Raptor.PCL.Enums;
@@ -26,7 +27,7 @@ namespace Raptor.Android.GameStates {
             
             _mainMenuAni = new MainMenuAnimation(contentManager, null, "MainMenu");    
             
-            _toLoading = new TextObject(_gameFont, "LOADING", null, Color.White, 5.0f, null);
+            _toLoading = new TextObject(_gameFont, "LOADING", Color.White, size: 5.0f);
 
           //  ChangeState(GAME_STATES.MAIN_GAME);
         }
