@@ -1753,6 +1753,13 @@
       "Raptor.PCL/1.0.0": {
         "type": "project"
       },
+      "Raptor.WebAPI.BusinessLayer/1.0.0": {
+        "type": "project",
+        "dependencies": {
+          "Raptor.PCL": "1.0.0",
+          "Raptor.WebAPI.DataLayer": "1.0.0"
+        }
+      },
       "Raptor.WebAPI.DataLayer/1.0.0": {
         "type": "project"
       }
@@ -5394,6 +5401,10 @@
       "type": "project",
       "msbuildProject": "../Raptor.PCL/Raptor.PCL.csproj"
     },
+    "Raptor.WebAPI.BusinessLayer/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../Raptor.WebAPI.BusinessLayer/Raptor.WebAPI.BusinessLayer.csproj"
+    },
     "Raptor.WebAPI.DataLayer/1.0.0": {
       "type": "project",
       "msbuildProject": "../Raptor.WebAPI.DataLayer/Raptor.WebAPI.DataLayer.csproj"
@@ -5413,6 +5424,7 @@
     ],
     ".NETFramework,Version=v4.6.2": [
       "Raptor.PCL",
+      "Raptor.WebAPI.BusinessLayer",
       "Raptor.WebAPI.DataLayer"
     ]
   },

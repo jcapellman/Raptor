@@ -24,6 +24,9 @@
         "Raptor.PCL": {
           "target": "project"
         },
+        "Raptor.WebAPI.BusinessLayer": {
+          "target": "project"
+        },
         "Raptor.WebAPI.DataLayer": {
           "target": "project"
         }

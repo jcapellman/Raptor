@@ -1,20 +1,17 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 
-namespace Raptor.WebAPI.Controllers {
-    [Route("api/[controller]")]
-    public class ContentSyncController : BaseController {
-        // GET api/values
-        [HttpGet]
-        public IEnumerable<string> Get() {
-            return new string[] { "value1", "value2" };
-        }
+using Raptor.PCL.WebAPI.Transports.Content;
+using Raptor.WebAPI.BusinessLayer.Managers;
 
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public string Get(int id) {
-            return "value";
-        }
+namespace Raptor.WebAPI.Controllers {
+    public class ContentSyncController : BaseController {
+        [HttpGet]
+        public IEnumerable<ContentSyncServerResponseItem> Get() => new ContentManager().GetServerContentListing();
+
+        [HttpGet]
+        public IEnumerable<ContentSyncFileResponseItem> Get(List<Guid> files) => new ContentManager().GetFiles(files);
     }
 }
