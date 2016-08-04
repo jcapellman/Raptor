@@ -2,6 +2,7 @@ using Android.App;
 using Android.Content.PM;
 using Android.OS;
 using Android.Views;
+using Raptor.GameEngine.PCL;
 
 namespace Raptor.Android {
     [Activity(Label = "Raptor"
