@@ -5,7 +5,7 @@ using Raptor.PCL.Enums;
 
 namespace Raptor.PCL.WebAPI.Transports.Content {
     [DataContract]
-    public class ContentSyncFileResponseItem {
+    public class ContentSyncFileResponseItem : BaseTransport {
         [DataMember]
         public Guid FileGUID { get; set; }
 
