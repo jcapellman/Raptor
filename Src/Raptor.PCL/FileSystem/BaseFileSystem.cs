@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using Raptor.PCL.Common;
 using Raptor.PCL.WebAPI.Transports.Content;
 
-namespace Raptor.PCL.Helpers {
+namespace Raptor.PCL.FileSystem {
     public abstract class BaseFileSystem {
         private List<ContentSyncServerResponseItem> _fileDB;
 

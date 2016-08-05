@@ -6,14 +6,18 @@ using Microsoft.Xna.Framework.Graphics;
 
 using Raptor.GameEngine.PCL.GameStates;
 using Raptor.PCL.Enums;
+using Raptor.PCL.FileSystem;
 
 namespace Raptor.GameEngine.PCL {
     public class MainGame : Game {
         readonly GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
         private BaseGameState _currentGameState;
+        private BaseFileSystem _fileSystem;
 
-        public MainGame() {
+        public MainGame(BaseFileSystem fileSystem) {
+            _fileSystem = fileSystem;
+
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
 

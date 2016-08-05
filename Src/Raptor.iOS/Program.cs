@@ -8,7 +8,7 @@ namespace Raptor.iOS {
         private static MainGame game;
 
         internal static void RunGame() {
-            game = new MainGame();
+            game = new MainGame(null);
             game.Run();
         }
 

@@ -3,7 +3,7 @@ using System.IO;
 using Newtonsoft.Json;
 
 using Raptor.PCL.Common;
-using Raptor.PCL.Helpers;
+using Raptor.PCL.FileSystem;
 
 using Environment = System.Environment;
 

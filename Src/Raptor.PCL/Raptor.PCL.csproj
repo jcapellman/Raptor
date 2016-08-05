@@ -35,11 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Common\Constants.cs" />
+    <Compile Include="Common\ReturnSet.cs" />
     <Compile Include="Enums\CONTENT_TYPES.cs" />
     <Compile Include="Enums\GAME_STATES.cs" />
     <Compile Include="Enums\TEXT_HORIZONTAL_ALIGNMENT.cs" />
     <Compile Include="Enums\TEXT_VERTICAL_ALIGNMENT.cs" />
-    <Compile Include="Helpers\BaseFileSystem.cs" />
+    <Compile Include="FileSystem\BaseFile.cs" />
+    <Compile Include="FileSystem\BaseFileSystem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebAPI\Transports\BaseTransport.cs" />
     <Compile Include="WebAPI\Transports\Content\ContentSyncFileResponseItem.cs" />
@@ -53,6 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Helpers\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
