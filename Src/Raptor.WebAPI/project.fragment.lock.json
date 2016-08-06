@@ -5,36 +5,57 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.5",
       "compile": {
-        "bin/Debug/Raptor.PCL.dll": {}
+        "bin/Release/Raptor.PCL.dll": {}
       },
       "runtime": {
         "../packages/Newtonsoft.Json.9.0.1/lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {},
-        "bin/Debug/Raptor.PCL.dll": {}
+        "bin/Release/Raptor.PCL.dll": {}
+      },
+      "contentFiles": {
+        "bin/Release/Raptor.PCL.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     },
     "Raptor.WebAPI.BusinessLayer/1.0.0": {
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.2",
       "compile": {
-        "bin/Debug/Raptor.WebAPI.BusinessLayer.dll": {}
+        "bin/Release/Raptor.WebAPI.BusinessLayer.dll": {}
       },
       "runtime": {
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
         "../packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.dll": {},
-        "bin/Debug/Raptor.WebAPI.BusinessLayer.dll": {}
+        "bin/Release/Raptor.WebAPI.BusinessLayer.dll": {}
+      },
+      "contentFiles": {
+        "bin/Release/Raptor.WebAPI.BusinessLayer.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     },
     "Raptor.WebAPI.DataLayer/1.0.0": {
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.2",
       "compile": {
-        "bin/Debug/Raptor.WebAPI.DataLayer.dll": {}
+        "bin/Release/Raptor.WebAPI.DataLayer.dll": {}
       },
       "runtime": {
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
-        "bin/Debug/Raptor.WebAPI.DataLayer.dll": {}
+        "bin/Release/Raptor.WebAPI.DataLayer.dll": {}
+      },
+      "contentFiles": {
+        "bin/Release/Raptor.WebAPI.DataLayer.pdb": {
+          "buildAction": "None",
+          "codeLanguage": "any",
+          "copyToOutput": true
+        }
       }
     }
   }

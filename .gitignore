@@ -2,3 +2,6 @@ bin/
 obj/
 .vs/
 /Src/packages
+*.apk
+*.user
+*.lock.json

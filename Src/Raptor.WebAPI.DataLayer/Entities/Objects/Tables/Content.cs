@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Raptor.WebAPI.DataLayer.Entities.Objects.Tables {
     public class Content {
         [Key]
-        public Guid GUID { get; set; }
+        public int ID { get; set; }
 
         public DateTimeOffset Modified { get; set; }
 

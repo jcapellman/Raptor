@@ -1754,11 +1754,7 @@
         "type": "project"
       },
       "Raptor.WebAPI.BusinessLayer/1.0.0": {
-        "type": "project",
-        "dependencies": {
-          "Raptor.PCL": "1.0.0",
-          "Raptor.WebAPI.DataLayer": "1.0.0"
-        }
+        "type": "project"
       },
       "Raptor.WebAPI.DataLayer/1.0.0": {
         "type": "project"

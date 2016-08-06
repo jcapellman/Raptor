@@ -62,28 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GlobalGame.cs" />
     <Compile Include="MainActivity.cs" />
-    <Compile Include="MainGame.cs" />
-    <Compile Include="GameStates\BaseGameState.cs" />
-    <Compile Include="GameStates\MainGameState.cs" />
-    <Compile Include="GameStates\MainMenuState.cs" />
-    <Compile Include="Objects\BaseObject.cs" />
-    <Compile Include="Objects\Levels\BaseLevel.cs" />
-    <Compile Include="Objects\Levels\E1M1.cs" />
-    <Compile Include="Objects\Planes\BasePlane.cs" />
-    <Compile Include="Objects\Planes\F22.cs" />
-    <Compile Include="Objects\Sprites\BaseSprite.cs" />
-    <Compile Include="Objects\Sprites\PlayerBullet.cs" />
-    <Compile Include="Objects\Tiles\BaseTile.cs" />
-    <Compile Include="Objects\Tiles\StaticTile.cs" />
+    <Compile Include="PlatformImplementations\FileSystem.cs" />
     <Compile Include="Resources\Resource.Designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <None Include="Resources\AboutResources.txt" />
-    <None Include="Assets\AboutAssets.txt" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\Values\Strings.xml" />
@@ -107,6 +93,10 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Raptor.GameEngine.PCL\Raptor.GameEngine.PCL.csproj">
+      <Project>{3cfdd177-2f0d-48c1-87d1-8d274dfc3de7}</Project>
+      <Name>Raptor.GameEngine.PCL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Raptor.PCL\Raptor.PCL.csproj">
       <Project>{dab9a1f7-616f-468f-a2d5-6bef8eecedc8}</Project>
       <Name>Raptor.PCL</Name>
