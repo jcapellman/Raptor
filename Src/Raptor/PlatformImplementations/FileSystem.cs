@@ -23,6 +23,11 @@ namespace Raptor.Android.PlatformImplementations {
             return true;
         }
 
+        public override bool DeleteFile(int fileID)
+        {
+            throw new System.NotImplementedException();
+        }
+
         public override ReturnSet<T> OpenFile<T>(string name) {
             if (!File.Exists(GetFullPath(name))) {
                 return new ReturnSet<T>($"{GetFullPath(name)} does not exist");

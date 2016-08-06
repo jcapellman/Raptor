@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 using Raptor.PCL.Enums;
@@ -11,20 +10,20 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
         public IEnumerable<ContentSyncServerResponseItem> GetServerContentListing() {
             using (var eFactory = new EntityFactory()) {
                 return eFactory.Content.Where(a => a.Active).ToList().Select(a => new ContentSyncServerResponseItem {
-                    FileGUID = a.GUID,
+                    FileID = a.ID,
                     FileVersion = a.Fileversion
                 }).ToList();
             }
         }
 
-        public IEnumerable<ContentSyncFileResponseItem> GetFiles(List<Guid> files) {
+        public IEnumerable<ContentSyncFileResponseItem> GetFiles(List<int> files) {
             using (var eFactory = new EntityFactory()) {
                 return
-                    eFactory.Content.Where(a => files.Contains(a.GUID))
+                    eFactory.Content.Where(a => files.Contains(a.ID))
                         .ToList()
                         .Select(b => new ContentSyncFileResponseItem  {
                             FileVersion = b.Fileversion,
-                            FileGUID = b.GUID,
+                            FileID = b.ID,
                             ContentType = (CONTENT_TYPES) b.ContentTypeID,
                             JsonData = b.JSONData
                         }).ToList();

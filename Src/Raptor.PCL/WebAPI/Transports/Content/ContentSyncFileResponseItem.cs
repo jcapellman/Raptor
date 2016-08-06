@@ -7,7 +7,7 @@ namespace Raptor.PCL.WebAPI.Transports.Content {
     [DataContract]
     public class ContentSyncFileResponseItem : BaseTransport {
         [DataMember]
-        public Guid FileGUID { get; set; }
+        public int FileID { get; set; }
 
         [DataMember]
         public int FileVersion { get; set; }

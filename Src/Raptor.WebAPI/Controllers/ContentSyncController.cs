@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,6 +11,6 @@ namespace Raptor.WebAPI.Controllers {
         public IEnumerable<ContentSyncServerResponseItem> Get() => new ContentManager().GetServerContentListing();
 
         [HttpGet]
-        public IEnumerable<ContentSyncFileResponseItem> Get(List<Guid> files) => new ContentManager().GetFiles(files);
+        public IEnumerable<ContentSyncFileResponseItem> Get(List<int> files) => new ContentManager().GetFiles(files);
     }
 }
