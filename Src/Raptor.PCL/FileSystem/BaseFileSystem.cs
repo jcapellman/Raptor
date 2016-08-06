@@ -12,7 +12,7 @@ namespace Raptor.PCL.FileSystem {
         public List<ContentSyncServerResponseItem> GetFileDB() => _fileDB;
 
         protected BaseFileSystem() {
-            var result = OpenFile<List<ContentSyncServerResponseItem>>(Constants.FILEDB_FILENAME);
+            var result = OpenFile<List<ContentSyncServerResponseItem>>(Constants.FILEDB_ID);
 
             _fileDB = result.HasError ? new List<ContentSyncServerResponseItem>() : result.ReturnValue;
         }
@@ -23,17 +23,15 @@ namespace Raptor.PCL.FileSystem {
             return file == null ? new ReturnSet<ContentSyncServerResponseItem>($"Could not obtain {fileID} from DB") : new ReturnSet<ContentSyncServerResponseItem>(file);
         }
 
-        public abstract void WriteFile<T>(string name, T obj);
-
-        public abstract bool DeleteFile(string name);
+        public abstract void WriteFile<T>(int fileID, T obj);
 
         public abstract bool DeleteFile(int fileID);
 
-        public abstract ReturnSet<T> OpenFile<T>(string name);
+        public abstract ReturnSet<T> OpenFile<T>(int fileID);
 
         public abstract string GetBasePath();
 
-        public abstract string GetFullPath(string fileName);
+        public abstract string GetFullPath(int fileID);
 
         public List<int> GetHigherVersionFilesList(List<ContentSyncServerResponseItem> serverSideFiles) {
             // If the database is empty - just download everything without wasting cycles

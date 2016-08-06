@@ -9,38 +9,32 @@ using Environment = System.Environment;
 
 namespace Raptor.Android.PlatformImplementations {
     public class FileSystem : BaseFileSystem {
-        public override void WriteFile<T>(string name, T obj) {
-            File.WriteAllText(GetFullPath(name), JsonConvert.SerializeObject(obj));
+        public override void WriteFile<T>(int fileID, T obj) {
+            File.WriteAllText(GetFullPath(fileID), JsonConvert.SerializeObject(obj));
         }
 
-        public override bool DeleteFile(string name) {
-            if (!File.Exists(GetFullPath(name))) {
+        public override bool DeleteFile(int fileID) {
+            if (!File.Exists(GetFullPath(fileID))) {
                 return false;
             }
 
-            File.Delete(GetFullPath(name));
+            File.Delete(GetFullPath(fileID));
 
             return true;
         }
 
-        public override bool DeleteFile(int fileID) {
-            var file = GetFile(fileID);
-
-            return !file.HasError && DeleteFile(file.ReturnValue.FileName);
-        }
-
-        public override ReturnSet<T> OpenFile<T>(string name) {
-            if (!File.Exists(GetFullPath(name))) {
-                return new ReturnSet<T>($"{GetFullPath(name)} does not exist");
+        public override ReturnSet<T> OpenFile<T>(int fileID) {
+            if (!File.Exists(GetFullPath(fileID))) {
+                return new ReturnSet<T>($"{GetFullPath(fileID)} does not exist");
             }
 
-            var json = File.ReadAllText(GetFullPath(name));
-
+            var json = File.ReadAllText(GetFullPath(fileID));
+            
             return new ReturnSet<T>(JsonConvert.DeserializeObject<T>(json));
         }
 
         public override string GetBasePath() => Environment.GetFolderPath(Environment.SpecialFolder.Personal);
 
-        public override string GetFullPath(string fileName) => Path.Combine(GetBasePath(), fileName);
+        public override string GetFullPath(int fileID) => Path.Combine(GetBasePath(), fileID.ToString());
     }
 }

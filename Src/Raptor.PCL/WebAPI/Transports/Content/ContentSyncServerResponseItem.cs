@@ -8,8 +8,5 @@ namespace Raptor.PCL.WebAPI.Transports.Content {
 
         [DataMember]
         public int FileVersion { get; set; }
-
-        [DataMember]
-        public string FileName { get; set; }
     }
 }
