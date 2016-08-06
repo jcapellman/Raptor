@@ -23,9 +23,10 @@ namespace Raptor.Android.PlatformImplementations {
             return true;
         }
 
-        public override bool DeleteFile(int fileID)
-        {
-            throw new System.NotImplementedException();
+        public override bool DeleteFile(int fileID) {
+            var file = GetFile(fileID);
+
+            return !file.HasError && DeleteFile(file.ReturnValue.FileName);
         }
 
         public override ReturnSet<T> OpenFile<T>(string name) {

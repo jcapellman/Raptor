@@ -17,6 +17,12 @@ namespace Raptor.PCL.FileSystem {
             _fileDB = result.HasError ? new List<ContentSyncServerResponseItem>() : result.ReturnValue;
         }
 
+        public ReturnSet<ContentSyncServerResponseItem> GetFile(int fileID) {
+            var file = GetFileDB().FirstOrDefault(a => a.FileID == fileID);
+
+            return file == null ? new ReturnSet<ContentSyncServerResponseItem>($"Could not obtain {fileID} from DB") : new ReturnSet<ContentSyncServerResponseItem>(file);
+        }
+
         public abstract void WriteFile<T>(string name, T obj);
 
         public abstract bool DeleteFile(string name);
