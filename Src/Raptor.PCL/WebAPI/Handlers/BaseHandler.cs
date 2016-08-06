@@ -25,6 +25,12 @@ namespace Raptor.PCL.WebAPI.Handlers {
 
         private string generateURL(string arguments) => string.IsNullOrEmpty(arguments) ? $"{Common.Constants.WEBAPI_ADDRESS}{BaseControllerName()}" : $"{Common.Constants.WEBAPI_ADDRESS}{BaseControllerName()}?{arguments}";
 
+        internal async Task<TK> GetAsync<T, TK>(T obj) {
+            var objStr = JsonConvert.SerializeObject(obj);
+
+            return await GetAsync<TK>(objStr);
+        }
+
         public async Task<T> GetAsync<T>() => await GetAsync<T>(string.Empty);
 
         protected async Task<T> GetAsync<T>(string urlArguments) {

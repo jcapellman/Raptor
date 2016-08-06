@@ -12,6 +12,6 @@ namespace Raptor.PCL.WebAPI.Handlers {
             => await GetAsync<ReturnSet<IEnumerable<ContentSyncServerResponseItem>>>();
 
         public async Task<ReturnSet<IEnumerable<ContentSyncFileResponseItem>>> GetFiles(List<int> files)
-            => await GetAsync<ReturnSet<IEnumerable<ContentSyncFileResponseItem>>>();
+            => await GetAsync<List<int>, ReturnSet<IEnumerable<ContentSyncFileResponseItem>>>(files);
     }
 }
