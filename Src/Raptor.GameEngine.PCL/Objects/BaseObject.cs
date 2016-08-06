@@ -1,7 +1,6 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Raptor.Android;
 
 namespace Raptor.GameEngine.PCL.Objects {
     public abstract class BaseObject {

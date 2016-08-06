@@ -1,16 +1,17 @@
 using System;
 using System.Threading.Tasks;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-using Raptor.GameEngine.PCL;
-using Raptor.GameEngine.PCL.GameStates;
+
 using Raptor.GameEngine.PCL.Objects;
 using Raptor.GameEngine.PCL.Objects.Menu;
+
 using Raptor.PCL.Enums;
 using Raptor.PCL.WebAPI.Handlers;
 
-namespace Raptor.Android.GameStates.PCL {
+namespace Raptor.GameEngine.PCL.GameStates {
     public class MainMenuState : BaseGameState {
         private bool _isLocked = true;
 
@@ -63,14 +64,12 @@ namespace Raptor.Android.GameStates.PCL {
         }
 
         private int increment = 0;
-        private string loadingText = "LOADING";
         private TextObject _toLoading;
 
         private void RenderLoadingIndicator() {
             if (increment == 100) {
                 increment = 0;
                 _toLoading.SetText("LOADING");
-                loadingText = "LOADING";
             } else {
                 increment += 1;
 
