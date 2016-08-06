@@ -8,7 +8,7 @@ namespace Raptor.GameEngine.PCL.Objects {
         private readonly Vector2 _position;
         private readonly Color _color;
         private readonly float _size;
-        private readonly string _text;
+        private string _text;
 
         public TextObject(SpriteFont font, string text, Color color, Vector2? position = null, float size = 5.0f, Vector2? origin = null) {
             _font = font;
@@ -28,6 +28,14 @@ namespace Raptor.GameEngine.PCL.Objects {
 
         public void DrawText(SpriteBatch _spriteBatch) {
             _spriteBatch.DrawString(_font, _text, _position, _color, 0, _origin, _size, SpriteEffects.None, 0.5f);
+        }
+
+        public void SetText(string text, bool append = false) {
+            if (append) {
+                _text += text;
+            } else {
+                _text = text;
+            }
         }
     }
 }

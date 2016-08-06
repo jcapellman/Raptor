@@ -1,11 +1,14 @@
+using System;
+using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
-
+using Raptor.GameEngine.PCL;
 using Raptor.GameEngine.PCL.GameStates;
 using Raptor.GameEngine.PCL.Objects;
 using Raptor.GameEngine.PCL.Objects.Menu;
 using Raptor.PCL.Enums;
+using Raptor.PCL.WebAPI.Handlers;
 
 namespace Raptor.Android.GameStates.PCL {
     public class MainMenuState : BaseGameState {
@@ -23,14 +26,40 @@ namespace Raptor.Android.GameStates.PCL {
 
         private MainMenuAnimation _mainMenuAni;
 
-        public override void LoadContent(ContentManager contentManager) {
+        private async Task<bool> CheckServerContent() {
+            var contentHandler = new ContentHandler();
+
+            var serverFiles = await contentHandler.GetServerContent();
+
+            if (serverFiles.HasError) {
+                throw new Exception(serverFiles.ExceptionMessage);
+            }
+
+            var filesNeedingUpdates = GlobalGame.FileSystem.GetHigherVersionFilesList(serverFiles.ReturnValue);
+
+            var updatedFiles = await contentHandler.GetFiles(filesNeedingUpdates);
+
+            if (updatedFiles.HasError) {
+                throw new Exception(updatedFiles.ExceptionMessage);
+            }
+
+            GlobalGame.FileSystem.AddFiles(updatedFiles.ReturnValue);
+
+            return true;
+        }
+
+        public override async void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
             
             _mainMenuAni = new MainMenuAnimation(contentManager, null, "MainMenu");    
             
             _toLoading = new TextObject(_gameFont, "LOADING", Color.White, size: 5.0f);
 
-          //  ChangeState(GAME_STATES.MAIN_GAME);
+            var sync = await CheckServerContent();
+
+            if (sync) {
+                ChangeState(GAME_STATES.MAIN_GAME);
+            }
         }
 
         private int increment = 0;
@@ -40,12 +69,13 @@ namespace Raptor.Android.GameStates.PCL {
         private void RenderLoadingIndicator() {
             if (increment == 100) {
                 increment = 0;
+                _toLoading.SetText("LOADING");
                 loadingText = "LOADING";
             } else {
                 increment += 1;
 
                 if (increment % 10 == 0) {                
-                    loadingText += ".";
+                    _toLoading.SetText(".", true);
                 }
             }
         }

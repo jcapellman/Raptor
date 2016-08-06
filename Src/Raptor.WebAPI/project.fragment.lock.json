@@ -5,17 +5,17 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.5",
       "compile": {
-        "bin/Release/Raptor.PCL.dll": {}
+        "bin/Debug/Raptor.PCL.dll": {}
       },
       "runtime": {
         "../packages/Microsoft.Net.Http.2.2.29/lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Extensions.dll": {},
         "../packages/Microsoft.Net.Http.2.2.29/lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.Primitives.dll": {},
         "../packages/Microsoft.Net.Http.2.2.29/lib/portable-net40+sl4+win8+wp71+wpa81/System.Net.Http.dll": {},
         "../packages/Newtonsoft.Json.9.0.1/lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll": {},
-        "bin/Release/Raptor.PCL.dll": {}
+        "bin/Debug/Raptor.PCL.dll": {}
       },
       "contentFiles": {
-        "bin/Release/Raptor.PCL.pdb": {
+        "bin/Debug/Raptor.PCL.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true
@@ -26,7 +26,7 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.2",
       "compile": {
-        "bin/Release/Raptor.WebAPI.BusinessLayer.dll": {}
+        "bin/Debug/Raptor.WebAPI.BusinessLayer.dll": {}
       },
       "runtime": {
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
@@ -34,10 +34,10 @@
         "../packages/Microsoft.Net.Http.2.2.29/lib/net45/System.Net.Http.Extensions.dll": {},
         "../packages/Microsoft.Net.Http.2.2.29/lib/net45/System.Net.Http.Primitives.dll": {},
         "../packages/Newtonsoft.Json.9.0.1/lib/net45/Newtonsoft.Json.dll": {},
-        "bin/Release/Raptor.WebAPI.BusinessLayer.dll": {}
+        "bin/Debug/Raptor.WebAPI.BusinessLayer.dll": {}
       },
       "contentFiles": {
-        "bin/Release/Raptor.WebAPI.BusinessLayer.pdb": {
+        "bin/Debug/Raptor.WebAPI.BusinessLayer.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true
@@ -48,15 +48,15 @@
       "type": "project",
       "framework": ".NETFramework,Version=v4.6.2",
       "compile": {
-        "bin/Release/Raptor.WebAPI.DataLayer.dll": {}
+        "bin/Debug/Raptor.WebAPI.DataLayer.dll": {}
       },
       "runtime": {
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.SqlServer.dll": {},
         "../packages/EntityFramework.6.1.3/lib/net45/EntityFramework.dll": {},
-        "bin/Release/Raptor.WebAPI.DataLayer.dll": {}
+        "bin/Debug/Raptor.WebAPI.DataLayer.dll": {}
       },
       "contentFiles": {
-        "bin/Release/Raptor.WebAPI.DataLayer.pdb": {
+        "bin/Debug/Raptor.WebAPI.DataLayer.pdb": {
           "buildAction": "None",
           "codeLanguage": "any",
           "copyToOutput": true

@@ -10,9 +10,9 @@ using Raptor.WebAPI.BusinessLayer.Managers;
 namespace Raptor.WebAPI.Controllers {
     public class ContentSyncController : BaseController {
         [HttpGet]
-        public ReturnSet<IEnumerable<ContentSyncServerResponseItem>> Get() => new ContentManager().GetServerContentListing();
+        public ReturnSet<List<ContentSyncServerResponseItem>> Get() => new ContentManager().GetServerContentListing();
 
         [HttpGet]
-        public ReturnSet<IEnumerable<ContentSyncFileResponseItem>> Get([FromQuery]List<int> files) => new ContentManager().GetFiles(files);
+        public ReturnSet<List<ContentSyncFileResponseItem>> Get([FromQuery]List<int> files) => new ContentManager().GetFiles(files);
     }
 }

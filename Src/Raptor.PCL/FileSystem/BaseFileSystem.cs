@@ -48,5 +48,16 @@ namespace Raptor.PCL.FileSystem {
             return (from file in serverSideFiles let clientSideFile = GetFileDB().FirstOrDefault(a => a.FileID == file.FileID) where clientSideFile == null ||
                     clientSideFile.FileVersion < file.FileVersion select file.FileID).ToList();
         }
+
+        public void AddFiles(List<ContentSyncFileResponseItem> updatedFiles) {
+            foreach (var file in updatedFiles) {
+                WriteFile(file.FileID, file.JsonData);
+
+                _fileDB.Add(new ContentSyncServerResponseItem {
+                    FileID = file.FileID,
+                    FileVersion = file.FileVersion
+                });
+            }
+        }
     }
 }

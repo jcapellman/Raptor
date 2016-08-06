@@ -13,10 +13,9 @@ namespace Raptor.GameEngine.PCL {
         readonly GraphicsDeviceManager _graphics;
         SpriteBatch _spriteBatch;
         private BaseGameState _currentGameState;
-        private BaseFileSystem _fileSystem;
-
+        
         public MainGame(BaseFileSystem fileSystem) {
-            _fileSystem = fileSystem;
+            GlobalGame.FileSystem = fileSystem;
 
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
