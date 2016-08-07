@@ -27,7 +27,7 @@ namespace Raptor.GameEngine.GameStates {
 
         private MainMenuAnimation _mainMenuAni;
 
-        private async void CheckServerContent() {
+        private async Task<bool> CheckServerContent() {
             var contentHandler = new ContentHandler();
 
             var serverFiles = await contentHandler.GetServerContent();
@@ -36,17 +36,17 @@ namespace Raptor.GameEngine.GameStates {
                 throw new Exception(serverFiles.ExceptionMessage);
             }
 
-            var filesNeedingUpdates = GlobalGame.FileSystem.GetHigherVersionFilesList(serverFiles.ReturnValue);
+            //var filesNeedingUpdates = GlobalGame.FileSystem.GetHigherVersionFilesList(serverFiles.ReturnValue);
 
-            var updatedFiles = await contentHandler.GetFiles(filesNeedingUpdates);
+            //var updatedFiles = await contentHandler.GetFiles(filesNeedingUpdates);
 
-            if (updatedFiles.HasError) {
-                throw new Exception(updatedFiles.ExceptionMessage);
-            }
+            //if (updatedFiles.HasError) {
+            //    throw new Exception(updatedFiles.ExceptionMessage);
+            //}
 
-            GlobalGame.FileSystem.AddFiles(updatedFiles.ReturnValue);
+            //GlobalGame.FileSystem.AddFiles(updatedFiles.ReturnValue);
 
-            ChangeState(GAME_STATES.MAIN_GAME);
+            return true;
         }
 
         public override async void LoadContent(ContentManager contentManager) {
@@ -56,7 +56,11 @@ namespace Raptor.GameEngine.GameStates {
             
             _toLoading = new TextObject(_gameFont, "LOADING", Color.White, size: 5.0f);
             
-            CheckServerContent();
+            var syncResult = await CheckServerContent();
+
+            if (syncResult) {
+                ChangeState(GAME_STATES.MAIN_GAME);
+            }
         }
 
         private int increment = 0;
