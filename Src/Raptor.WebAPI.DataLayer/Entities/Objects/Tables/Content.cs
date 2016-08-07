@@ -1,7 +1,9 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Raptor.WebAPI.DataLayer.Entities.Objects.Tables {
+    [Table("Content")]
     public class Content {
         [Key]
         public int ID { get; set; }

@@ -27,7 +27,7 @@ namespace Raptor.GameEngine.GameStates {
 
         private MainMenuAnimation _mainMenuAni;
 
-        private async Task<bool> CheckServerContent() {
+        private async void CheckServerContent() {
             var contentHandler = new ContentHandler();
 
             var serverFiles = await contentHandler.GetServerContent();
@@ -46,22 +46,17 @@ namespace Raptor.GameEngine.GameStates {
 
             GlobalGame.FileSystem.AddFiles(updatedFiles.ReturnValue);
 
-            return true;
+            ChangeState(GAME_STATES.MAIN_GAME);
         }
 
-        public override void LoadContent(ContentManager contentManager) {
+        public override async void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
             
             _mainMenuAni = new MainMenuAnimation(contentManager);    
             
             _toLoading = new TextObject(_gameFont, "LOADING", Color.White, size: 5.0f);
-
-            ChangeState(GAME_STATES.MAIN_GAME);
-            //  var sync = await CheckServerContent();
-
-            //   if (sync) {
-            //      ChangeState(GAME_STATES.MAIN_GAME);
-            //   }
+            
+            CheckServerContent();
         }
 
         private int increment = 0;

@@ -18,16 +18,16 @@ namespace Raptor.WebAPI {
 
         public IConfigurationRoot Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services) {
+        public void ConfigureServices(IServiceCollection services)
+        {
             services.Configure<GlobalSettings>(Configuration.GetSection("GlobalSettings"));
 
             services.AddMvc();
         }
         
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging"));
-            loggerFactory.AddDebug();
-
+            app.UseDeveloperExceptionPage();
+           
             app.UseMvc();
         }
     }
