@@ -1,5 +1,5 @@
 ﻿using Foundation;
-using Raptor.GameEngine.PCL;
+using Raptor.GameEngine;
 using UIKit;
 
 namespace Raptor.iOS {
@@ -8,7 +8,7 @@ namespace Raptor.iOS {
         private static MainGame game;
 
         internal static void RunGame() {
-            game = new MainGame(null);
+            game = new MainGame();
             game.Run();
         }
 
