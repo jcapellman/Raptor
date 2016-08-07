@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
+using Raptor.PCL.Common;
+
 using Raptor.WebAPI.Containers;
+using Raptor.WebAPI.Helpers;
 using Raptor.WebAPI.Settings;
 
 namespace Raptor.WebAPI.Controllers {
@@ -12,6 +15,14 @@ namespace Raptor.WebAPI.Controllers {
 
         public BaseController(GlobalSettings globalSettings) {
             _globalSettings = globalSettings;
-        }        
+        }
+
+        public ReturnSet<T> ReturnHandler<T>(ReturnSet<T> obj) {
+            if (obj.HasError) {
+                ExceptionHandler.HandleException(typeof(T).Namespace, obj.ExceptionMessage);
+            }
+
+            return obj;
+        } 
     }
 }

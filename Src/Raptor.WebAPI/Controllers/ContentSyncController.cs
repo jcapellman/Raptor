@@ -16,9 +16,9 @@ namespace Raptor.WebAPI.Controllers {
         public ContentSyncController(IOptions<GlobalSettings> globalSettings) : base(globalSettings.Value) { }
 
         [HttpGet]
-        public ReturnSet<List<ContentSyncServerResponseItem>> Get() => new ContentManager(MANAGER_CONTAINER.GSetings.DatabaseConnection).GetServerContentListing();
+        public ReturnSet<List<ContentSyncServerResponseItem>> Get() => ReturnHandler(new ContentManager(MANAGER_CONTAINER.GSetings.DatabaseConnection).GetServerContentListing());
 
         [HttpGet("{files}")]
-        public ReturnSet<List<ContentSyncFileResponseItem>> Get(string files) => new ContentManager(MANAGER_CONTAINER.GSetings.DatabaseConnection).GetFiles(files.Split(',').Select(a => Convert.ToInt32(a)).ToList());
+        public ReturnSet<List<ContentSyncFileResponseItem>> Get(string files) => ReturnHandler(new ContentManager(MANAGER_CONTAINER.GSetings.DatabaseConnection).GetFiles(files.Split(',').Select(a => Convert.ToInt32(a)).ToList()));
     }
 }

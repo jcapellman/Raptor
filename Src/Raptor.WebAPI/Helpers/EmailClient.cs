@@ -2,7 +2,7 @@
 using System.Net.Mail;
 using Raptor.PCL.Common;
 
-namespace Raptor.WebAPI {
+namespace Raptor.WebAPI.Helpers {
     public class EmailClient {
         private static string senderAddress;
 
