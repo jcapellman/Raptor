@@ -6,9 +6,14 @@
 	<string>Raptor</string>
 	<key>CFBundleIconFiles</key>
 	<array>
+		<string>Default.png</string>
 		<string>Icon-72.png</string>
 		<string>Icon.png</string>
-		<string>Default.png</string>
+		<string>Icon-60@2x.png</string>
+		<string>Icon-76.png</string>
+		<string>Icon-76@2x.png</string>
+		<string>Default@2x.png</string>
+		<string>Default-568h@2x.png</string>
 	</array>
 	<key>CFBundleIdentifier</key>
 	<string>com.motionblurstudiosllc.raptor</string>
@@ -28,5 +33,11 @@
 	<string>1</string>
 	<key>CFBundleVersion</key>
 	<string>1</string>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array/>
+	<key>UIPrerenderedIcon</key>
+	<true/>
+	<key>UIRequiresFullScreen</key>
+	<string>YES</string>
 </dict>
 </plist>
