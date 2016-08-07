@@ -66,6 +66,7 @@
   <ItemGroup>
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\ContentManager.cs" />
+    <Compile Include="Managers\HighScoreManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

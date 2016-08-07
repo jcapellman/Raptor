@@ -9,6 +9,12 @@ namespace Raptor.WebAPI.DataLayer.Entities {
 
         public DbSet<ContentTypes> ContentTypes { get; set; }
         
+        public DbSet<Errors> Errors { get; set; }
+
+        public DbSet<Platforms> Platforms { get; set; }
+
+        public DbSet<HighScores> HighScores { get; set; }
+
         public override int SaveChanges() {
             foreach (var item in ChangeTracker.Entries()) {
                 if (item.State == EntityState.Deleted || item.State == EntityState.Modified ||

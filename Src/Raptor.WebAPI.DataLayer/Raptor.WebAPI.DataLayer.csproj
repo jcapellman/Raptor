@@ -54,6 +54,9 @@
     <Compile Include="Entities\EntityFactory.cs" />
     <Compile Include="Entities\Objects\Tables\Content.cs" />
     <Compile Include="Entities\Objects\Tables\ContentTypes.cs" />
+    <Compile Include="Entities\Objects\Tables\Errors.cs" />
+    <Compile Include="Entities\Objects\Tables\HighScores.cs" />
+    <Compile Include="Entities\Objects\Tables\Platforms.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
