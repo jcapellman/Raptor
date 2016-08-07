@@ -44,6 +44,8 @@
     <Compile Include="Enums\TEXT_VERTICAL_ALIGNMENT.cs" />
     <Compile Include="FileSystem\BaseFile.cs" />
     <Compile Include="FileSystem\BaseFileSystem.cs" />
+    <Compile Include="Managers\BaseManager.cs" />
+    <Compile Include="Managers\ContentSyncManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WebAPI\Handlers\BaseHandler.cs" />
     <Compile Include="WebAPI\Handlers\ContentHandler.cs" />

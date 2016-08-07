@@ -1,6 +1,3 @@
-using System;
-using System.Threading.Tasks;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -9,7 +6,7 @@ using Raptor.GameEngine.Objects;
 using Raptor.GameEngine.Objects.Menu;
 
 using Raptor.PCL.Enums;
-using Raptor.PCL.WebAPI.Handlers;
+using Raptor.PCL.Managers;
 
 namespace Raptor.GameEngine.GameStates {
     public class MainMenuState : BaseGameState {
@@ -27,28 +24,6 @@ namespace Raptor.GameEngine.GameStates {
 
         private MainMenuAnimation _mainMenuAni;
 
-        private async Task<bool> CheckServerContent() {
-            var contentHandler = new ContentHandler();
-
-            var serverFiles = await contentHandler.GetServerContent();
-
-            if (serverFiles.HasError) {
-                throw new Exception(serverFiles.ExceptionMessage);
-            }
-
-            //var filesNeedingUpdates = GlobalGame.FileSystem.GetHigherVersionFilesList(serverFiles.ReturnValue);
-
-            //var updatedFiles = await contentHandler.GetFiles(filesNeedingUpdates);
-
-            //if (updatedFiles.HasError) {
-            //    throw new Exception(updatedFiles.ExceptionMessage);
-            //}
-
-            //GlobalGame.FileSystem.AddFiles(updatedFiles.ReturnValue);
-
-            return true;
-        }
-
         public override async void LoadContent(ContentManager contentManager) {
             LoadFont("GameFont", contentManager);
             
@@ -56,7 +31,7 @@ namespace Raptor.GameEngine.GameStates {
             
             _toLoading = new TextObject(_gameFont, "LOADING", Color.White, size: 5.0f);
             
-            var syncResult = await CheckServerContent();
+            var syncResult = await new ContentSyncManager().SymcServerFiles(GlobalGame.FileSystem);
 
             if (syncResult) {
                 ChangeState(GAME_STATES.MAIN_GAME);
