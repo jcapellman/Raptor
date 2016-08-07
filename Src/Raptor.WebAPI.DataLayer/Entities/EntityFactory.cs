@@ -8,9 +8,7 @@ namespace Raptor.WebAPI.DataLayer.Entities {
         public DbSet<Content> Content { get; set; }
 
         public DbSet<ContentTypes> ContentTypes { get; set; }
-
-        public EntityFactory() : base("name=EFModel") { }
-
+        
         public override int SaveChanges() {
             foreach (var item in ChangeTracker.Entries()) {
                 if (item.State == EntityState.Deleted || item.State == EntityState.Modified ||
@@ -31,5 +29,7 @@ namespace Raptor.WebAPI.DataLayer.Entities {
 
             return base.SaveChanges();
         }
+        
+        public EntityFactory(string connectionString) : base(connectionString) { }        
     }
 }
