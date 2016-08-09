@@ -5,12 +5,14 @@ using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 
+using Raptor.PCL.WebAPI.Common;
+
 namespace Raptor.PCL.WebAPI.Handlers {
     public abstract class BaseHandler {
-        private readonly Guid? _userGUID;
+        private readonly HandlerWrapperItem _wrapperItem;
 
-        protected BaseHandler(Guid? userGUID = null) {
-            _userGUID = userGUID;
+        protected BaseHandler(HandlerWrapperItem wrapperItem) {
+            _wrapperItem = wrapperItem;
         }
 
         protected abstract string BaseControllerName();
@@ -20,10 +22,10 @@ namespace Raptor.PCL.WebAPI.Handlers {
 
             var client = new HttpClient(handler) { Timeout = TimeSpan.FromMinutes(1) };
 
-            return _userGUID == null ? client : client;
+            return _wrapperItem.UserID == null ? client : client;
         }
 
-        private string generateURL(string arguments) => string.IsNullOrEmpty(arguments) ? $"{Common.Constants.WEBAPI_ADDRESS}{BaseControllerName()}" : $"{Common.Constants.WEBAPI_ADDRESS}{BaseControllerName()}?{arguments}";
+        private string generateURL(string arguments) => string.IsNullOrEmpty(arguments) ? $"{PCL.Common.Constants.WEBAPI_ADDRESS}{BaseControllerName()}" : $"{PCL.Common.Constants.WEBAPI_ADDRESS}{BaseControllerName()}?{arguments}";
 
         internal async Task<TK> GetAsync<T, TK>(T obj) {
             var objStr = JsonConvert.SerializeObject(obj);

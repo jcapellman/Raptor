@@ -40,6 +40,7 @@
     <Compile Include="Common\ReturnSet.cs" />
     <Compile Include="Enums\CONTENT_TYPES.cs" />
     <Compile Include="Enums\GAME_STATES.cs" />
+    <Compile Include="Enums\PLATFORMS.cs" />
     <Compile Include="Enums\TEXT_HORIZONTAL_ALIGNMENT.cs" />
     <Compile Include="Enums\TEXT_VERTICAL_ALIGNMENT.cs" />
     <Compile Include="FileSystem\BaseFile.cs" />
@@ -47,6 +48,7 @@
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\ContentSyncManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebAPI\Common\HandlerWrapperItem.cs" />
     <Compile Include="WebAPI\Handlers\BaseHandler.cs" />
     <Compile Include="WebAPI\Handlers\ContentHandler.cs" />
     <Compile Include="WebAPI\Transports\BaseTransport.cs" />
