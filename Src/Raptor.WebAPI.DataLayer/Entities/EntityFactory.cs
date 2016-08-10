@@ -1,5 +1,6 @@
 ﻿using System;
-using System.Data.Entity;
+
+using Microsoft.EntityFrameworkCore;
 
 using Raptor.WebAPI.DataLayer.Entities.Objects.Tables;
 
@@ -15,27 +16,35 @@ namespace Raptor.WebAPI.DataLayer.Entities {
 
         public DbSet<HighScores> HighScores { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            optionsBuilder.UseSqlServer(databaseConnection);
+        }
+
         public override int SaveChanges() {
             foreach (var item in ChangeTracker.Entries()) {
                 if (item.State == EntityState.Deleted || item.State == EntityState.Modified ||
                     item.State == EntityState.Added) {
-                    item.Member("Modified").CurrentValue = DateTimeOffset.Now;
+                    item.Property("Modified").CurrentValue = DateTimeOffset.Now;
                 }
 
                 switch (item.State) {
                     case EntityState.Deleted:
-                        item.Member("Active").CurrentValue = false;
+                        item.Property("Active").CurrentValue = false;
                         break;
                     case EntityState.Added:
-                        item.Member("Created").CurrentValue = DateTimeOffset.Now;
-                        item.Member("Active").CurrentValue = true;
+                        item.Property("Created").CurrentValue = DateTimeOffset.Now;
+                        item.Property("Active").CurrentValue = true;
                         break;
                 }
             }
 
             return base.SaveChanges();
         }
-        
-        public EntityFactory(string connectionString) : base(connectionString) { }        
+
+        private readonly string databaseConnection;
+
+        public EntityFactory(string connectionString) {
+            databaseConnection = connectionString;
+        }        
     }
 }

@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
+using Microsoft.EntityFrameworkCore;
+
 using Raptor.PCL.Common;
 using Raptor.PCL.Enums;
 using Raptor.PCL.WebAPI.Transports.Content;
@@ -12,7 +14,7 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
     public class ContentManager : BaseManager {
         public ReturnSet<List<ContentSyncServerResponseItem>> GetServerContentListing() {
             using (var eFactory = new EntityFactory(DatabaseConnection)) {
-                var response = eFactory.Content.Where(a => a.Active).ToList().Select(a => new ContentSyncServerResponseItem {
+                var response = eFactory.Content.Where(a => a.Active).AsNoTracking().ToList().Select(a => new ContentSyncServerResponseItem {
                     FileID = a.ID,
                     FileVersion = a.Fileversion
                 }).ToList();
@@ -24,7 +26,7 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
         public ReturnSet<List<ContentSyncFileResponseItem>> GetFiles(List<int> files) {
             using (var eFactory = new EntityFactory(DatabaseConnection)) {
                 return new ReturnSet<List<ContentSyncFileResponseItem>>(
-                    eFactory.Content.Where(a => files.Contains(a.ID))
+                    eFactory.Content.Where(a => files.Contains(a.ID) && a.Active).AsNoTracking()
                         .ToList()
                         .Select(b => new ContentSyncFileResponseItem {
                             FileVersion = b.Fileversion,
