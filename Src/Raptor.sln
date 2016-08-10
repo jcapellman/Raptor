@@ -21,6 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raptor.WebAPI.BusinessLayer
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Raptor.UWP", "Raptor.UWP\Raptor.UWP.csproj", "{DD221404-F245-4AF8-B455-3EA84E9FA948}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6E51AD5B-CE63-4523-B7E6-F3C2E073AF06}"
+	ProjectSection(SolutionItems) = preProject
+		NuGet.Config = NuGet.Config
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
 		Raptor.GameEngine\Raptor.GameEngine.projitems*{10473580-dec9-4332-a19d-4e92822d99cf}*SharedItemsImports = 4
