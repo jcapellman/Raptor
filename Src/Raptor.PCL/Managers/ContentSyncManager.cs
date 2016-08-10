@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using Raptor.PCL.FileSystem;
+using Raptor.PCL.WebAPI.Common;
 using Raptor.PCL.WebAPI.Handlers;
 
 namespace Raptor.PCL.Managers {
@@ -13,7 +14,7 @@ namespace Raptor.PCL.Managers {
                 throw new Exception("fileSystem is null");
             }
 
-            var contentHandler = new ContentHandler();
+            var contentHandler = new ContentHandler(new HandlerWrapperItem());
 
             var serverFiles = await contentHandler.GetServerContent();
 

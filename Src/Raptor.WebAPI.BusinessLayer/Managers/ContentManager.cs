@@ -5,6 +5,7 @@ using Raptor.PCL.Common;
 using Raptor.PCL.Enums;
 using Raptor.PCL.WebAPI.Transports.Content;
 
+using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.DataLayer.Entities;
 
 namespace Raptor.WebAPI.BusinessLayer.Managers {
@@ -34,6 +35,6 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
             }
         }
 
-        public ContentManager(string databaseConnection) : base(databaseConnection) { }
+        public ContentManager(GlobalSettings gSettings) : base(gSettings) { }
     }
 }

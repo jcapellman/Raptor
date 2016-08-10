@@ -2,9 +2,9 @@
 
 using Raptor.PCL.Common;
 
+using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.Containers;
 using Raptor.WebAPI.Helpers;
-using Raptor.WebAPI.Settings;
 
 namespace Raptor.WebAPI.Controllers {
     [Route("api/[controller]")]

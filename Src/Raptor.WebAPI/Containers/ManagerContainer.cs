@@ -1,4 +1,4 @@
-﻿using Raptor.WebAPI.Settings;
+﻿using Raptor.WebAPI.BusinessLayer.Settings;
 
 namespace Raptor.WebAPI.Containers {
     public class ManagerContainer {

@@ -1,9 +1,13 @@
-﻿namespace Raptor.WebAPI.BusinessLayer.Managers {
-    public class BaseManager {
-        protected string DatabaseConnection;
+﻿using Raptor.WebAPI.BusinessLayer.Settings;
 
-        public BaseManager(string databaseConnection) {
-            DatabaseConnection = databaseConnection;
+namespace Raptor.WebAPI.BusinessLayer.Managers {
+    public class BaseManager {
+        private readonly GlobalSettings _gSettings;
+
+        protected string DatabaseConnection => _gSettings.DatabaseConnection;
+
+        public BaseManager(GlobalSettings gSettings) {
+            _gSettings = gSettings;
         }
     }
 }

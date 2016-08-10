@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 
 using Raptor.PCL.Common;
+using Raptor.PCL.WebAPI.Common;
 using Raptor.PCL.WebAPI.Transports.Content;
 
 namespace Raptor.PCL.WebAPI.Handlers {
@@ -13,5 +14,7 @@ namespace Raptor.PCL.WebAPI.Handlers {
 
         public async Task<ReturnSet<List<ContentSyncFileResponseItem>>> GetFiles(List<int> files)
             => await GetAsync<List<int>, ReturnSet<List<ContentSyncFileResponseItem>>>(files);
+
+        public ContentHandler(HandlerWrapperItem wrapperItem) : base(wrapperItem) { }
     }
 }
