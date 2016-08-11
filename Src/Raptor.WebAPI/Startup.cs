@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+
 using Raptor.WebAPI.BusinessLayer.Settings;
 
 namespace Raptor.WebAPI {
@@ -17,13 +18,13 @@ namespace Raptor.WebAPI {
 
         public IConfigurationRoot Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services)
-        {
+        public void ConfigureServices(IServiceCollection services) {
             services.Configure<GlobalSettings>(Configuration.GetSection("GlobalSettings"));
 
-            services.AddMvc();
+            services.AddMemoryCache();
+            services.AddMvcCore();
         }
-        
+
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
             app.UseDeveloperExceptionPage();
            

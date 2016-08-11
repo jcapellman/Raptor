@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
 using Raptor.PCL.Common;
@@ -9,7 +10,7 @@ using Raptor.WebAPI.BusinessLayer.Settings;
 
 namespace Raptor.WebAPI.Controllers {
     public class HighScoreController : BaseController {
-        public HighScoreController(IOptions<GlobalSettings> globalSettings) : base(globalSettings.Value) { }
+        public HighScoreController(IOptions<GlobalSettings> globalSettings, IMemoryCache memoryCache) : base(globalSettings.Value, memoryCache) { }
 
         [HttpPut]
         public ReturnSet<bool> AddHighScore(HighScoreRequestItem requestItem)

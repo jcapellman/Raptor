@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Caching.Memory;
 
 using Raptor.PCL.Common;
 
@@ -13,8 +14,11 @@ namespace Raptor.WebAPI.Controllers {
         
         public ManagerContainer MANAGER_CONTAINER => new ManagerContainer { GSetings = _globalSettings };
 
-        public BaseController(GlobalSettings globalSettings) {
+        protected IMemoryCache _memoryCache;
+
+        public BaseController(GlobalSettings globalSettings, IMemoryCache memoryCache) {
             _globalSettings = globalSettings;
+            _memoryCache = memoryCache;
         }
 
         public ReturnSet<T> ReturnHandler<T>(ReturnSet<T> obj) {
@@ -23,6 +27,20 @@ namespace Raptor.WebAPI.Controllers {
             }
 
             return obj;
-        } 
+        }
+
+        public ReturnSet<T> GetCacheItem<T>(string key) {
+            var item = _memoryCache.Get<T>(key);
+
+            return item == null ? new ReturnSet<T>($"{key} was not found in cache") : new ReturnSet<T>(item);
+        }
+
+        public void AddCacheItem<T>(string key, T obj) {
+            _memoryCache.Set(key, obj);
+        }
+
+        public void RemoveCacheItem(string key) {
+            _memoryCache.Remove(key);
+        }
     }
 }
