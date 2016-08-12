@@ -3,6 +3,7 @@ using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
 using Raptor.PCL.Common;
+using Raptor.PCL.Enums;
 using Raptor.PCL.WebAPI.Transports.HighScore;
 
 using Raptor.WebAPI.BusinessLayer.Managers;
@@ -16,6 +17,6 @@ namespace Raptor.WebAPI.Controllers {
         public ReturnSet<bool> AddHighScore(HighScoreRequestItem requestItem)
             =>
                 ReturnHandler(
-                    new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem));
+                    new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem), WebAPIRequests.HIGHSCORE_ADD);
     }
 }

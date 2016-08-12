@@ -43,6 +43,7 @@
     <Compile Include="Enums\PLATFORMS.cs" />
     <Compile Include="Enums\TEXT_HORIZONTAL_ALIGNMENT.cs" />
     <Compile Include="Enums\TEXT_VERTICAL_ALIGNMENT.cs" />
+    <Compile Include="Enums\WebAPIRequests.cs" />
     <Compile Include="FileSystem\BaseFile.cs" />
     <Compile Include="FileSystem\BaseFileSystem.cs" />
     <Compile Include="Managers\BaseManager.cs" />
