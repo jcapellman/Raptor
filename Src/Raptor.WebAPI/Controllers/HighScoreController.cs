@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
 
@@ -8,6 +9,7 @@ using Raptor.PCL.WebAPI.Transports.HighScore;
 
 using Raptor.WebAPI.BusinessLayer.Managers;
 using Raptor.WebAPI.BusinessLayer.Settings;
+using Raptor.WebAPI.CustomAttributes;
 
 namespace Raptor.WebAPI.Controllers {
     public class HighScoreController : BaseController {
@@ -17,6 +19,13 @@ namespace Raptor.WebAPI.Controllers {
         public ReturnSet<bool> AddHighScore(HighScoreRequestItem requestItem)
             =>
                 ReturnHandler(
-                    new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem), WebAPIRequests.HIGHSCORE_ADD);
+                    new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem), WEBAPI_REQUESTS.HIGHSCORE_ADD);
+
+        [HttpGet]
+        [Cachable(WEBAPI_REQUESTS.HIGHSCORE_GET)]
+        public ReturnSet<List<HighScoreListResponseItem>> GET(int levelID)
+            =>
+                ReturnHandler(new HighScoreManager(MANAGER_CONTAINER.GSetings).GetScores(levelID),
+                    WEBAPI_REQUESTS.HIGHSCORE_GET);
     }
 }
