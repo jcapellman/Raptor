@@ -43,7 +43,7 @@
     <Compile Include="Enums\PLATFORMS.cs" />
     <Compile Include="Enums\TEXT_HORIZONTAL_ALIGNMENT.cs" />
     <Compile Include="Enums\TEXT_VERTICAL_ALIGNMENT.cs" />
-    <Compile Include="Enums\WebAPIRequests.cs" />
+    <Compile Include="Enums\WEBAPI_REQUESTS.cs" />
     <Compile Include="FileSystem\BaseFile.cs" />
     <Compile Include="FileSystem\BaseFileSystem.cs" />
     <Compile Include="Managers\BaseManager.cs" />
@@ -55,6 +55,7 @@
     <Compile Include="WebAPI\Transports\BaseTransport.cs" />
     <Compile Include="WebAPI\Transports\Content\ContentSyncFileResponseItem.cs" />
     <Compile Include="WebAPI\Transports\Content\ContentSyncServerResponseItem.cs" />
+    <Compile Include="WebAPI\Transports\HighScore\HighScoreListResponseItem.cs" />
     <Compile Include="WebAPI\Transports\HighScore\HighScoreRequestItem.cs" />
   </ItemGroup>
   <ItemGroup>
