@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
+using Raptor.WebAPI.CustomAttributes;
 
 namespace Raptor.WebAPI {
     public class Startup {
@@ -23,6 +24,8 @@ namespace Raptor.WebAPI {
 
             services.AddMemoryCache();
             services.AddMvcCore();
+
+            services.AddScoped<Cachable>();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {

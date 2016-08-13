@@ -19,7 +19,7 @@ namespace Raptor.WebAPI.Controllers {
         public ContentSyncController(IOptions<GlobalSettings> globalSettings, IMemoryCache memoryCache) : base(globalSettings.Value, memoryCache) { }
 
         [HttpGet]
-        [Cachable(WEBAPI_REQUESTS.SERVERCONTENT_GET)]
+        [TypeFilter(typeof(Cachable), Arguments = new object[] { WEBAPI_REQUESTS.SERVERCONTENT_GET })]
         public ReturnSet<List<ContentSyncServerResponseItem>> Get() => ReturnHandler(new ContentManager(MANAGER_CONTAINER.GSetings).GetServerContentListing(), WEBAPI_REQUESTS.SERVERCONTENT_GET);
 
         [HttpGet("{files}")]

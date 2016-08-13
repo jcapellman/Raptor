@@ -22,7 +22,7 @@ namespace Raptor.WebAPI.Controllers {
                     new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem), WEBAPI_REQUESTS.HIGHSCORE_ADD);
 
         [HttpGet]
-        [Cachable(WEBAPI_REQUESTS.HIGHSCORE_GET)]
+        [TypeFilter(typeof(Cachable), Arguments = new object[] { WEBAPI_REQUESTS.HIGHSCORE_GET })]
         public ReturnSet<List<HighScoreListResponseItem>> GET(int levelID)
             =>
                 ReturnHandler(new HighScoreManager(MANAGER_CONTAINER.GSetings).GetScores(levelID),
