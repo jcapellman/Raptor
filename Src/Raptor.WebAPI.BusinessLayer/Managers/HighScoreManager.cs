@@ -13,7 +13,9 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
 
         public ReturnSet<List<HighScoreListResponseItem>> GetScores(int levelID) {
             using (var eFactory = new EntityFactory(DatabaseConnection)) {
-                return new ReturnSet<List<HighScoreListResponseItem>>();
+                var response = new List<HighScoreListResponseItem>();
+
+                return new ReturnSet<List<HighScoreListResponseItem>>(response);
             }
         }
 

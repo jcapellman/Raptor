@@ -1,6 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc.Filters;
+﻿using System;
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Caching.Memory;
 using Microsoft.Extensions.Options;
+
+using Newtonsoft.Json;
 
 using Raptor.PCL.Enums;
 
@@ -8,7 +13,7 @@ using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.Helpers;
 
 namespace Raptor.WebAPI.CustomAttributes {
-    public class Cachable : ActionFilterAttribute {
+    public class Cachable : Attribute, IResourceFilter {
         private readonly WEBAPI_REQUESTS _requestEnum;
 
         private readonly MemoryCacheHelper _memoryCache;
@@ -17,15 +22,31 @@ namespace Raptor.WebAPI.CustomAttributes {
             _requestEnum = requestEnum;
             _memoryCache = new MemoryCacheHelper(memoryCache);
         }
-        
-        public override void OnActionExecuting(ActionExecutingContext context) {
+
+        public void OnResourceExecuting(ResourceExecutingContext context) {
             if (!_memoryCache.ContainsKey(_requestEnum)) {
                 return;
             }
 
-            // todo handle returning the cache item
+            context.Result = new ContentResult() {
+                Content = _memoryCache.GetCacheItem<string>(_requestEnum).ReturnValue
+            };
+        }
 
-            base.OnActionExecuting(context);
+        public void OnResourceExecuted(ResourceExecutedContext context) {
+            if (_memoryCache.ContainsKey(_requestEnum)) {
+                return;
+            }
+
+            if (context.Result == null) {
+                return;
+            }
+
+            var result = JsonConvert.SerializeObject(context.Result);
+
+            if (result != null) {
+                _memoryCache.AddCacheItem(_requestEnum, result);
+            }
         }
     }
 }

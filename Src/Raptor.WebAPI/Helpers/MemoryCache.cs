@@ -28,5 +28,11 @@ namespace Raptor.WebAPI.Helpers {
         public bool ContainsKey(string key) => _memoryCache.Get(key) != null;
 
         public bool ContainsKey(WEBAPI_REQUESTS requestEnum) => ContainsKey(requestEnum.ToString());
+
+        public ReturnSet<T> GetCacheItem<T>(WEBAPI_REQUESTS requestEnum) => GetCacheItem<T>(requestEnum.ToString());
+
+        public void AddCacheItem<T>(WEBAPI_REQUESTS requestEnum, T obj) {
+            AddCacheItem<T>(requestEnum.ToString(), obj);
+        }
     }
 }
