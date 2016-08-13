@@ -3,6 +3,7 @@ using Microsoft.Extensions.Caching.Memory;
 
 using Raptor.PCL.Common;
 using Raptor.PCL.Enums;
+
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.Containers;
 using Raptor.WebAPI.Helpers;
@@ -14,33 +15,21 @@ namespace Raptor.WebAPI.Controllers {
         
         public ManagerContainer MANAGER_CONTAINER => new ManagerContainer { GSetings = _globalSettings };
 
-        protected IMemoryCache MemoryCache;
+        protected MemoryCacheHelper MemoryCache;
 
         public BaseController(GlobalSettings globalSettings, IMemoryCache memoryCache) {
             _globalSettings = globalSettings;
-            MemoryCache = memoryCache;
+            MemoryCache = new MemoryCacheHelper(memoryCache);
         }
 
-        public ReturnSet<T> ReturnHandler<T>(ReturnSet<T> obj, WebAPIRequests requestEnum) {
+        public ReturnSet<T> ReturnHandler<T>(ReturnSet<T> obj, WEBAPI_REQUESTS requestEnum) {
             if (obj.HasError) {
                 ExceptionHandler.HandleException(typeof(T).Namespace, obj.ExceptionMessage);
             }
+
+            // todo record request for statistical analysis
             
             return obj;
-        }
-
-        public ReturnSet<T> GetCacheItem<T>(string key) {
-            var item = MemoryCache.Get<T>(key);
-
-            return item == null ? new ReturnSet<T>($"{key} was not found in cache") : new ReturnSet<T>(item);
-        }
-
-        public void AddCacheItem<T>(string key, T obj) {
-            MemoryCache.Set(key, obj);
-        }
-
-        public void RemoveCacheItem(string key) {
-            MemoryCache.Remove(key);
         }
     }
 }
