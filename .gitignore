@@ -6,3 +6,5 @@ obj/
 *.user
 *.lock.json
 *.bak
+/Src/Raptor.WebAPI/project.lock.json
+/Src/Raptor.WebAPI/project.fragment.lock.json
