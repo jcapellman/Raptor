@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-
+using Microsoft.Extensions.Logging;
 using Raptor.PCL.Common;
 using Raptor.PCL.Enums;
 
@@ -16,7 +16,7 @@ namespace Raptor.WebAPI.Controllers {
         public ManagerContainer MANAGER_CONTAINER => new ManagerContainer { GSetings = _globalSettings };
 
         protected MemoryCacheHelper MemoryCache;
-
+        
         public BaseController(GlobalSettings globalSettings, IMemoryCache memoryCache) {
             _globalSettings = globalSettings;
             MemoryCache = new MemoryCacheHelper(memoryCache);

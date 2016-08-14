@@ -6,6 +6,7 @@ using Microsoft.Extensions.Logging;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.CustomAttributes;
+using Raptor.WebAPI.Helpers;
 
 namespace Raptor.WebAPI {
     public class Startup {
@@ -21,6 +22,7 @@ namespace Raptor.WebAPI {
 
         public void ConfigureServices(IServiceCollection services) {
             services.Configure<GlobalSettings>(Configuration.GetSection("GlobalSettings"));
+            services.AddScoped<MemoryCacheHelper>();
 
             services.AddMemoryCache();
             services.AddMvcCore();
