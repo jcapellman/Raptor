@@ -1,10 +1,14 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+
+using Microsoft.EntityFrameworkCore;
 
 using Raptor.PCL.Common;
 using Raptor.PCL.WebAPI.Transports.HighScore;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.DataLayer.Entities;
+using Raptor.WebAPI.DataLayer.Entities.Objects.SPs;
 using Raptor.WebAPI.DataLayer.Entities.Objects.Tables;
 
 namespace Raptor.WebAPI.BusinessLayer.Managers {
@@ -13,7 +17,12 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
 
         public ReturnSet<List<HighScoreListResponseItem>> GetScores(int levelID) {
             using (var eFactory = new EntityFactory(DatabaseConnection)) {
-                var response = new List<HighScoreListResponseItem>();
+                var result = eFactory.Set<WEBAPI_getHighScoreListSP>().FromSql("dbo.WEBAPI_getHighScoreListSP @LevelID = {0}", levelID).ToList();
+
+                var response = result.Select(a => new HighScoreListResponseItem {
+                    HighScore = a.HighScore,
+                    Username = a.Username
+                }).ToList();
 
                 return new ReturnSet<List<HighScoreListResponseItem>>(response);
             }

@@ -129,7 +129,12 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Raptor.PCL\Raptor.PCL.csproj">
+      <Project>{dab9a1f7-616f-468f-a2d5-6bef8eecedc8}</Project>
+      <Name>Raptor.PCL</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
