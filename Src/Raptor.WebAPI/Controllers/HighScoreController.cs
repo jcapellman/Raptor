@@ -18,8 +18,7 @@ namespace Raptor.WebAPI.Controllers {
         [HttpPut]
         public ReturnSet<bool> AddHighScore(HighScoreRequestItem requestItem)
             =>
-                ReturnHandler(
-                    new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem), WEBAPI_REQUESTS.HIGHSCORE_ADD);
+                ReturnHandler(new HighScoreManager(MANAGER_CONTAINER.GSetings).RecordHighScore(requestItem), WEBAPI_REQUESTS.HIGHSCORE_ADD);
 
         [HttpGet]
         [TypeFilter(typeof(Cachable), Arguments = new object[] { WEBAPI_REQUESTS.HIGHSCORE_GET })]

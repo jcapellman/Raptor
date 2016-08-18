@@ -16,6 +16,10 @@ namespace Raptor.WebAPI.DataLayer.Entities {
 
         public DbSet<HighScores> HighScores { get; set; }
 
+        public DbSet<WebAPIRequests> WebAPIRequests { get; set; }
+
+        public DbSet<WebAPIRequestLog> WebAPIRequestLog { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             optionsBuilder.UseSqlServer(databaseConnection);
         }

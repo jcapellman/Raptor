@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.Logging;
+
 using Raptor.PCL.Common;
 using Raptor.PCL.Enums;
 
+using Raptor.WebAPI.BusinessLayer.Managers;
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.Containers;
 using Raptor.WebAPI.Helpers;
@@ -27,7 +28,7 @@ namespace Raptor.WebAPI.Controllers {
                 ExceptionHandler.HandleException(typeof(T).Namespace, obj.ExceptionMessage);
             }
 
-            // todo record request for statistical analysis
+            new RequestManager(MANAGER_CONTAINER.GSetings).RecordRequest(requestEnum, null);
             
             return obj;
         }
