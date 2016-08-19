@@ -123,10 +123,12 @@
   <ItemGroup>
     <Compile Include="Entities\EntityFactory.cs" />
     <Compile Include="Entities\Objects\SPs\WEBAPI_getHighScoreListSP.cs" />
+    <Compile Include="Entities\Objects\Tables\BaseTable.cs" />
     <Compile Include="Entities\Objects\Tables\Content.cs" />
     <Compile Include="Entities\Objects\Tables\ContentTypes.cs" />
     <Compile Include="Entities\Objects\Tables\Errors.cs" />
     <Compile Include="Entities\Objects\Tables\HighScores.cs" />
+    <Compile Include="Entities\Objects\Tables\Levels.cs" />
     <Compile Include="Entities\Objects\Tables\Platforms.cs" />
     <Compile Include="Entities\Objects\Tables\WebAPIRequestLog.cs" />
     <Compile Include="Entities\Objects\Tables\WebAPIRequests.cs" />

@@ -9,6 +9,6 @@ namespace Raptor.PCL.WebAPI.Transports.Levels {
         public string LevelName { get; set; }
 
         [DataMember]
-        public int LevelNumbr { get; set; }
+        public string LevelDescription { get; set; }
     }
 }
