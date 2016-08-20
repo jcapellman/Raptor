@@ -9,6 +9,11 @@ namespace Raptor.WebAPI.BusinessLayer.Managers {
 
         public ReturnSet<bool> CreateUpdate(LevelCreationRequestItem requestItem) {
             return new ReturnSet<bool>(true);
-        } 
+        }
+
+        public ReturnSet<bool> Delete(int levelID)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
