@@ -59,6 +59,8 @@
     <Compile Include="WebAPI\Transports\HighScore\HighScoreListResponseItem.cs" />
     <Compile Include="WebAPI\Transports\HighScore\HighScoreRequestItem.cs" />
     <Compile Include="WebAPI\Transports\Levels\LevelCreationRequestItem.cs" />
+    <Compile Include="WebAPI\Transports\Levels\LevelCreationUpdateRequestItem.cs" />
+    <Compile Include="WebAPI\Transports\Levels\LevelResponseItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
