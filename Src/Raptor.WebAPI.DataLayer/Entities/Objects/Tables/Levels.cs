@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Raptor.WebAPI.DataLayer.Entities.Objects.Tables {
+    [Table("Levels")]
     public class Levels : BaseTable {
         public string LevelName { get; set; }
 

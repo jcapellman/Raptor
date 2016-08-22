@@ -11,7 +11,7 @@ namespace Raptor.WebAPI.Controllers {
     public class LevelsController : BaseController {
         public LevelsController(GlobalSettings globalSettings, IMemoryCache memoryCache) : base(globalSettings, memoryCache) { }
 
-        public ReturnSet<bool> POST(LevelCreationRequestItem requestItem)
+        public ReturnSet<bool> POST(LevelCreationUpdateRequestItem requestItem)
             =>
                 ReturnHandler(new LevelManager(MANAGER_CONTAINER.GSetings).Update(requestItem),
                     WEBAPI_REQUESTS.LEVELCREATION_UPDATE);
