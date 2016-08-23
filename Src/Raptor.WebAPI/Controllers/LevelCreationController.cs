@@ -8,8 +8,8 @@ using Raptor.WebAPI.BusinessLayer.Managers;
 using Raptor.WebAPI.BusinessLayer.Settings;
 
 namespace Raptor.WebAPI.Controllers {
-    public class LevelsController : BaseController {
-        public LevelsController(GlobalSettings globalSettings, IMemoryCache memoryCache) : base(globalSettings, memoryCache) { }
+    public class LevelCreationController : BaseController {
+        public LevelCreationController(GlobalSettings globalSettings, IMemoryCache memoryCache) : base(globalSettings, memoryCache) { }
 
         public ReturnSet<bool> POST(LevelCreationUpdateRequestItem requestItem)
             =>

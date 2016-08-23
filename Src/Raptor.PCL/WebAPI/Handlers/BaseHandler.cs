@@ -4,7 +4,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json;
-
+using Raptor.PCL.Common;
 using Raptor.PCL.WebAPI.Common;
 
 namespace Raptor.PCL.WebAPI.Handlers {
@@ -55,6 +55,14 @@ namespace Raptor.PCL.WebAPI.Handlers {
             var responseStr = await response.Content.ReadAsStringAsync();
 
             return JsonConvert.DeserializeObject<TK>(responseStr);
+        }
+
+        protected async Task<ReturnSet<bool>> DeleteAsync(string urlArguments) {
+            var url = generateURL(urlArguments);
+
+            var str = await GetHttpClient().DeleteAsync(url);
+
+            return new ReturnSet<bool>(str.IsSuccessStatusCode);
         }
 
         protected async Task<TK> PutAsync<T, TK>(T obj) => await PutAsync<T, TK>(string.Empty, obj);
