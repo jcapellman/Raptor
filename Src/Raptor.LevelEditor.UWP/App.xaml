@@ -6,6 +6,14 @@
     RequestedTheme="Light">
 
     <Application.Resources>
-       
+        <Style TargetType="Grid" x:Key="GridPageBackground">
+            <Setter Property="Background" Value="#2e2e2e" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="PageHeaderText">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="34" />
+            <Setter Property="Margin" Value="10,10,0,10" />
+        </Style>
     </Application.Resources>
 </Application>

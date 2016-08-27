@@ -16,9 +16,9 @@ namespace Raptor.LevelEditor.UWP.Views {
         public static List<MenuItem> GetMainItems() {
             var items = new List<MenuItem>();
 
-            items.Add(new MenuItem() { Icon = Symbol.Contact, Name = "Your Levels", PageType = typeof(Views.MainPage) });
-            items.Add(new MenuItem() { Icon = Symbol.World, Name = "Top Rated Levels", PageType = typeof(Views.MainPage) });
-            items.Add(new MenuItem() { Icon = Symbol.Setting, Name = "Settings", PageType = typeof(Views.MainPage) });
+            items.Add(new MenuItem() { Icon = Symbol.Contact, Name = "Your Levels", PageType = typeof(Views.YourLevelsPage) });
+            items.Add(new MenuItem() { Icon = Symbol.World, Name = "Top Rated Levels", PageType = typeof(Views.TopRatedLevelsPages) });
+            items.Add(new MenuItem() { Icon = Symbol.Setting, Name = "Settings", PageType = typeof(Views.SettingsPage) });
 
             return items;
         }        
@@ -30,9 +30,19 @@ namespace Raptor.LevelEditor.UWP.Views {
         public MainPage() {
             this.InitializeComponent();
 
-            HamburgerMenuControl.ItemsSource = MenuItem.GetMainItems();
+            hmMain.ItemsSource = MenuItem.GetMainItems();
 
             DataContext = new MainPageViewModel();
+        }
+
+        private void hmMain_ItemClick(object sender, ItemClickEventArgs e) {
+            if (!(e.ClickedItem is MenuItem)) {
+                return;
+            }
+
+            var item = (MenuItem)e.ClickedItem;
+
+            fMain.Navigate(item.PageType);
         }
     }
 }

@@ -22,8 +22,9 @@
     </Page.Resources>
 
     <Grid Background="#1e1e1e">
-        <controls:HamburgerMenu x:Name="HamburgerMenuControl"
+        <controls:HamburgerMenu x:Name="hmMain"
 	        Foreground="White"
+            ItemClick="hmMain_ItemClick"
             ItemTemplate="{StaticResource DefaultTemplate}"
 	        OpenPaneLength="240"
 	        DisplayMode="CompactInline"
