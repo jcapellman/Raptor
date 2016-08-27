@@ -5,9 +5,32 @@
     xmlns:local="using:Raptor.LevelEditor.UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Page.Resources>
+        <DataTemplate x:Key="DefaultTemplate" x:DataType="local:MenuItem">
+            <Grid Width="240" Height="48">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="48" />
+                    <ColumnDefinition />
+                </Grid.ColumnDefinitions>
+                <SymbolIcon Grid.Column="0" Symbol="{x:Bind Icon, Mode=OneWay}" Foreground="White" />
+                <TextBlock Grid.Column="1" Text="{x:Bind Name, Mode=OneWay}" FontSize="16" VerticalAlignment="Center" Foreground="White" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
 
+    <Grid Background="#1e1e1e">
+        <controls:HamburgerMenu x:Name="HamburgerMenuControl"
+	        Foreground="White"
+            ItemTemplate="{StaticResource DefaultTemplate}"
+	        OpenPaneLength="240"
+	        DisplayMode="CompactInline"
+	        CompactPaneLength="48"
+	        HamburgerHeight="48"
+	        IsPaneOpen="False">
+            <Frame Background="#2e2e2e" x:Name="fMain" />
+        </controls:HamburgerMenu>
     </Grid>
 </Page>

@@ -5,4 +5,7 @@
     xmlns:local="using:Raptor.LevelEditor.UWP"
     RequestedTheme="Light">
 
+    <Application.Resources>
+       
+    </Application.Resources>
 </Application>
