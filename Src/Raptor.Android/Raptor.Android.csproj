@@ -48,6 +48,9 @@
     <AndroidLinkMode>SdkOnly</AndroidLinkMode>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="GCM.Client">
+      <HintPath>..\Components\GCMClient-1.0\lib\android\GCM.Client.dll</HintPath>
+    </Reference>
     <Reference Include="Mono.Android" />
     <Reference Include="mscorlib" />
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -109,6 +112,16 @@
       <Project>{dab9a1f7-616f-468f-a2d5-6bef8eecedc8}</Project>
       <Name>Raptor.PCL</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <XamarinComponentReference Include="azure-messaging">
+      <Visible>False</Visible>
+      <Version>1.2.5.0</Version>
+    </XamarinComponentReference>
+    <XamarinComponentReference Include="GCMClient">
+      <Visible>False</Visible>
+      <Version>1.0</Version>
+    </XamarinComponentReference>
   </ItemGroup>
   <Import Project="..\Raptor.GameEngine\Raptor.GameEngine.projitems" Label="Shared" Condition="Exists('..\Raptor.GameEngine\Raptor.GameEngine.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />
