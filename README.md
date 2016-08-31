@@ -2,6 +2,8 @@
 
 Raptor is a cross platform game using MonoGame going after the 90s vertical arcade shooter.
 
+Note: Now requires VS 15 Preview 4 to compile cleanly
+
 ## Build Status
 
 | AppVeyor |
