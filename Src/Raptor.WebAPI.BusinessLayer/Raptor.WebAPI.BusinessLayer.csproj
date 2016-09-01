@@ -137,6 +137,7 @@
     <Compile Include="Managers\BaseManager.cs" />
     <Compile Include="Managers\ContentManager.cs" />
     <Compile Include="Managers\HighScoreManager.cs" />
+    <Compile Include="Managers\LevelCreationBrowserManager.cs" />
     <Compile Include="Managers\LevelManager.cs" />
     <Compile Include="Managers\RequestManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
