@@ -53,12 +53,14 @@
     <Compile Include="WebAPI\Common\HandlerWrapperItem.cs" />
     <Compile Include="WebAPI\Handlers\BaseHandler.cs" />
     <Compile Include="WebAPI\Handlers\ContentHandler.cs" />
+    <Compile Include="WebAPI\Handlers\LevelCreationBrowserHandler.cs" />
     <Compile Include="WebAPI\Handlers\LevelCreationHandler.cs" />
     <Compile Include="WebAPI\Transports\BaseTransport.cs" />
     <Compile Include="WebAPI\Transports\Content\ContentSyncFileResponseItem.cs" />
     <Compile Include="WebAPI\Transports\Content\ContentSyncServerResponseItem.cs" />
     <Compile Include="WebAPI\Transports\HighScore\HighScoreListResponseItem.cs" />
     <Compile Include="WebAPI\Transports\HighScore\HighScoreRequestItem.cs" />
+    <Compile Include="WebAPI\Transports\LevelCreationBrowser\LevelCreationBrowserResponseItem.cs" />
     <Compile Include="WebAPI\Transports\Levels\LevelCreationRequestItem.cs" />
     <Compile Include="WebAPI\Transports\Levels\LevelCreationUpdateRequestItem.cs" />
     <Compile Include="WebAPI\Transports\Levels\LevelResponseItem.cs" />
