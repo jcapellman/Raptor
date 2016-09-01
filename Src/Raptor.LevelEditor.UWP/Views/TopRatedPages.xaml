@@ -5,9 +5,17 @@
     xmlns:local="using:Raptor.LevelEditor.UWP.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     mc:Ignorable="d">
 
     <Grid Style="{StaticResource GridPageBackground}">
-        <TextBlock Text="Top Rated Levels" Style="{StaticResource PageHeaderText}" />
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        
+        <TextBlock Grid.Row="0" Text="Top Rated Levels" Style="{StaticResource PageHeaderText}" />
+        
+        <controls:AdaptiveGridView Grid.Row="1" ItemHeight="50" DesiredWidth="200" ItemsSource="{Binding Levels}" />
     </Grid>
 </Page>
