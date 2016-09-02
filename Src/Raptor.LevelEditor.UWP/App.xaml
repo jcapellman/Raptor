@@ -15,5 +15,18 @@
             <Setter Property="FontSize" Value="34" />
             <Setter Property="Margin" Value="10,10,0,10" />
         </Style>
+        
+        <Style TargetType="TextBlock" x:Key="TopRatedItemDescription">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="TopRatedItemNumberDownloads">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontSize" Value="12" />
+            <Setter Property="Margin" Value="5,0,0,0" />
+            <Setter Property="HorizontalAlignment" Value="Left" />
+            <Setter Property="VerticalAlignment" Value="Bottom" />
+        </Style>
     </Application.Resources>
 </Application>
