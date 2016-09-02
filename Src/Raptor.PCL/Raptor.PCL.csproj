@@ -60,6 +60,7 @@
     <Compile Include="WebAPI\Transports\Content\ContentSyncServerResponseItem.cs" />
     <Compile Include="WebAPI\Transports\HighScore\HighScoreListResponseItem.cs" />
     <Compile Include="WebAPI\Transports\HighScore\HighScoreRequestItem.cs" />
+    <Compile Include="WebAPI\Transports\LevelCreationBrowser\LevelCreationBrowserDetailResponseItem.cs" />
     <Compile Include="WebAPI\Transports\LevelCreationBrowser\LevelCreationBrowserResponseItem.cs" />
     <Compile Include="WebAPI\Transports\Levels\LevelCreationRequestItem.cs" />
     <Compile Include="WebAPI\Transports\Levels\LevelCreationUpdateRequestItem.cs" />
