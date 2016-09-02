@@ -1,4 +1,5 @@
 ﻿using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 
 using Raptor.LevelEditor.UWP.ViewModels;
@@ -15,6 +16,12 @@ namespace Raptor.LevelEditor.UWP.Views {
 
         protected override async void OnNavigatedTo(NavigationEventArgs e) {
             var result = await viewModel.LoadData();
+        }
+
+        private void levelItem_Tapped(object sender, TappedRoutedEventArgs e) {
+            if (!svLevel.IsPaneOpen) {
+                svLevel.IsPaneOpen = true;
+            }
         }
     }
 }

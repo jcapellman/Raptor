@@ -14,9 +14,41 @@ namespace Raptor.LevelEditor.UWP.ViewModels {
             set { _levels = value; OnPropertyChanged(); }
         }
 
-        public async Task<bool> LoadData() {
+        private LevelCreationBrowserDetailResponseItem _detailItem;
+
+        public LevelCreationBrowserDetailResponseItem DetailItem {
+            get { return _detailItem; }
+            set { _detailItem = value; OnPropertyChanged(); }
+        }
+
+        public async Task<bool> LoadDetailData(int levelID) {
             var levelCreationHandler = new LevelCreationBrowserHandler(null);
 
+            var result = await levelCreationHandler.GetLevelDetail(levelID);
+
+            if (result.HasError) {
+                throw new Exception(result.ExceptionMessage);
+            }
+
+            DetailItem = result.ReturnValue;
+
+            return true;
+        }
+
+        public async Task<bool> LoadData() {
+#if DEBUG
+            Levels = new ObservableCollection<LevelCreationBrowserResponseItem>();
+
+            Levels.Add(new LevelCreationBrowserResponseItem {
+                NumberDownloads = 100,
+                Name = "Test"
+            });
+
+            Levels.Add(new LevelCreationBrowserResponseItem {
+                NumberDownloads = 10,
+                Name = "Test"
+            });
+#else
             var result = await levelCreationHandler.GetLevelListing();
 
             if (result.HasError) {
@@ -24,7 +56,7 @@ namespace Raptor.LevelEditor.UWP.ViewModels {
             }
 
             Levels = new ObservableCollection<LevelCreationBrowserResponseItem>(result.ReturnValue);
-
+#endif
             return true;
         }
     }

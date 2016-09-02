@@ -13,6 +13,9 @@ namespace Raptor.PCL.WebAPI.Handlers {
         public async Task<ReturnSet<List<LevelCreationBrowserResponseItem>>> GetLevelListing()
             => await GetAsync<ReturnSet<List<LevelCreationBrowserResponseItem>>>();
 
+        public async Task<ReturnSet<LevelCreationBrowserDetailResponseItem>> GetLevelDetail(int levelID)
+            => await GetAsync<ReturnSet<LevelCreationBrowserDetailResponseItem>>($"levelID={levelID}");
+
         public LevelCreationBrowserHandler(HandlerWrapperItem wrapperItem) : base(wrapperItem) { }
     }
 }

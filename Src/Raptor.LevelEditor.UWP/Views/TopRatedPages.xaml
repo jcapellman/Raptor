@@ -7,37 +7,49 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     xmlns:levelCreationBrowser="using:Raptor.PCL.WebAPI.Transports.LevelCreationBrowser"
+    xmlns:viewModels="using:Raptor.LevelEditor.UWP.ViewModels"
     mc:Ignorable="d">
-    
+
+    <Page.DataContext>
+        <viewModels:TopRatedPageViewModel />
+    </Page.DataContext>
+
     <Grid Style="{StaticResource GridPageBackground}">
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        
+
         <TextBlock Grid.Row="0" Text="Top Rated Levels" Style="{StaticResource PageHeaderText}" />
-        
-        <controls:AdaptiveGridView Grid.Row="1" ItemHeight="50" DesiredWidth="200" ItemsSource="{x:Bind Levels, Mode=OneWay}">
-            <controls:AdaptiveGridView.ItemTemplate>
-                <DataTemplate x:DataType="levelCreationBrowser:LevelCreationBrowserResponseItem">
-                    <Grid Margin="10,10,10,10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="*" />
-                        </Grid.ColumnDefinitions>
-                        
-                        <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
-                        
-                        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Bind Name}" Style="{StaticResource TopRatedItemDescription}" />
-                        <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind NumberDownloads}" Style="{StaticResource TopRatedItemNumberDownloads}" />
-                    </Grid>
-                </DataTemplate>
-            </controls:AdaptiveGridView.ItemTemplate>
-        </controls:AdaptiveGridView>
+
+        <SplitView Grid.Row="1" PanePlacement="Right" x:Name="svLevel" DisplayMode="Overlay">
+            <SplitView.Content>
+                <controls:AdaptiveGridView ItemHeight="50" DesiredWidth="200" ItemsSource="{x:Bind Path=viewModel.Levels, Mode=OneWay}">
+                    <controls:AdaptiveGridView.ItemTemplate>
+                        <DataTemplate x:DataType="levelCreationBrowser:LevelCreationBrowserResponseItem">
+                            <Grid Margin="10,10,10,10" Tapped="levelItem_Tapped">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                </Grid.ColumnDefinitions>
+
+                                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Bind Name}" Style="{StaticResource TopRatedItemDescription}" />
+                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind NumberDownloads}" Style="{StaticResource TopRatedItemNumberDownloads}" />
+                            </Grid>
+                        </DataTemplate>
+                    </controls:AdaptiveGridView.ItemTemplate>
+                </controls:AdaptiveGridView>
+            </SplitView.Content>
+            <SplitView.Pane>
+                <controls:HeaderedTextBlock Header="Level Name" Text="Test" Orientation="Vertical" Margin="20,10,0,0" />
+            </SplitView.Pane>
+        </SplitView>
     </Grid>
 </Page>
