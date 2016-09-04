@@ -48,17 +48,20 @@ namespace Raptor.LevelEditor.UWP.ViewModels {
 
         public async Task<ReturnSet<bool>> LoadData() {
 #if DEBUG
-            Levels = new ObservableCollection<LevelCreationBrowserResponseItem>();
+            Levels = new ObservableCollection<LevelCreationBrowserResponseItem> {
+                new LevelCreationBrowserResponseItem
+                {
+                    NumberDownloads = 100,
+                    Name = "Test"
+                },
+                new LevelCreationBrowserResponseItem
+                {
+                    NumberDownloads = 10,
+                    Name = "Test"
+                }
+            };
 
-            Levels.Add(new LevelCreationBrowserResponseItem {
-                NumberDownloads = 100,
-                Name = "Test"
-            });
 
-            Levels.Add(new LevelCreationBrowserResponseItem {
-                NumberDownloads = 10,
-                Name = "Test"
-            });
 #else
             var result = await levelCreationHandler.GetLevelListing();
 

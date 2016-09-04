@@ -38,5 +38,10 @@
             <Setter Property="Foreground" Value="White" />
             <Setter Property="FontSize" Value="16" />
         </Style>
+
+        <Style TargetType="Grid" x:Key="AdditionalInformationSplitView">
+            <Setter Property="Margin" Value="20,10,0,0" />
+            <Setter Property="Background" Value="#3e3e3e" />
+        </Style>
     </Application.Resources>
 </Application>

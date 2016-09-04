@@ -24,7 +24,7 @@ namespace Raptor.LevelEditor.UWP.Views {
         }        
     }
 
-    public sealed partial class MainPage : Page {        
+    public sealed partial class MainPage {        
         private MainPageViewModel viewModel => (MainPageViewModel) DataContext;
 
         public MainPage() {
@@ -36,13 +36,13 @@ namespace Raptor.LevelEditor.UWP.Views {
         }
 
         private void hmMain_ItemClick(object sender, ItemClickEventArgs e) {
-            if (!(e.ClickedItem is MenuItem)) {
+            var clickedItem = (e.ClickedItem as MenuItem);
+
+            if (clickedItem == null) {
                 return;
             }
-
-            var item = (MenuItem)e.ClickedItem;
-
-            fMain.Navigate(item.PageType);
+            
+            fMain.Navigate(clickedItem.PageType);
         }
     }
 }

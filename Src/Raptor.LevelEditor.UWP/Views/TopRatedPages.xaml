@@ -15,40 +15,42 @@
     </Page.DataContext>
 
     <Grid Style="{StaticResource GridPageBackground}">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
-
-        <TextBlock Grid.Row="0" Text="Top Rated Levels" Style="{StaticResource PageHeaderText}" />
-
         <SplitView Grid.Row="1" PanePlacement="Right" x:Name="svLevel" DisplayMode="Overlay">
             <SplitView.Content>
-                <controls:AdaptiveGridView ItemHeight="50" DesiredWidth="200" ItemClick="AgvLevels_OnItemClick" x:Name="agvLevels" ItemsSource="{x:Bind Path=viewModel.Levels, Mode=OneWay}">
-                    <controls:AdaptiveGridView.ItemTemplate>
-                        <DataTemplate x:DataType="levelCreationBrowser:LevelCreationBrowserResponseItem">
-                            <Grid Margin="10,10,10,10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="*" />
-                                    <RowDefinition Height="Auto" />
-                                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Row="0" Text="Top Rated Levels" Style="{StaticResource PageHeaderText}" />
 
-                                <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+                    <controls:AdaptiveGridView Grid.Row="1" ItemHeight="50" DesiredWidth="200" ItemClick="AgvLevels_OnItemClick" x:Name="agvLevels" ItemsSource="{x:Bind Path=viewModel.Levels, Mode=OneWay}">
+                        <controls:AdaptiveGridView.ItemTemplate>
+                            <DataTemplate x:DataType="levelCreationBrowser:LevelCreationBrowserResponseItem">
+                                <Grid Margin="10,10,10,10">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="*" />
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
 
-                                <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Bind Name}" Style="{StaticResource TopRatedItemDescription}" />
-                                <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind NumberDownloads}" Style="{StaticResource TopRatedItemNumberDownloads}" />
-                            </Grid>
-                        </DataTemplate>
-                    </controls:AdaptiveGridView.ItemTemplate>
-                </controls:AdaptiveGridView>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+
+                                    <Image Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" />
+
+                                    <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Bind Name}" Style="{StaticResource TopRatedItemDescription}" />
+                                    <TextBlock Grid.Row="1" Grid.Column="1" Text="{x:Bind NumberDownloads}" Style="{StaticResource TopRatedItemNumberDownloads}" />
+                                </Grid>
+                            </DataTemplate>
+                        </controls:AdaptiveGridView.ItemTemplate>
+                    </controls:AdaptiveGridView>
+                </Grid>
             </SplitView.Content>
             <SplitView.Pane>
-                <Grid Margin="20,10,0,0">
+                <Grid Style="{StaticResource AdditionalInformationSplitView}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
