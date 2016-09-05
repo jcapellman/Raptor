@@ -8,16 +8,19 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 using Raptor.LevelEditor.UWP.Views;
+using Raptor.PCL.WebAPI.Transports.Users;
 
 namespace Raptor.LevelEditor.UWP {
     sealed partial class App : Application {
-        public bool HasInternet {
+        public static bool HasInternet {
             get {
                 var connection = NetworkInformation.GetInternetConnectionProfile();
 
                 return connection?.GetNetworkConnectivityLevel() == NetworkConnectivityLevel.InternetAccess;
             }
         }
+
+        public static UserResponseItem CurrentUser;
 
         public App() {
             this.InitializeComponent();
