@@ -3,6 +3,7 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:Raptor.LevelEditor.UWP"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
     RequestedTheme="Light">
 
     <Application.Resources>
@@ -42,6 +43,11 @@
         <Style TargetType="Grid" x:Key="AdditionalInformationSplitView">
             <Setter Property="Margin" Value="20,10,0,0" />
             <Setter Property="Background" Value="#3e3e3e" />
+        </Style>
+
+        <Style TargetType="controls:HeaderedTextBlock" x:Key="FieldHeaderText">
+            <Setter Property="Foreground" Value="#9e9e9e" />
+            <Setter Property="Orientation" Value="Vertical" />
         </Style>
     </Application.Resources>
 </Application>

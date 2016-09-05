@@ -8,3 +8,5 @@ obj/
 *.bak
 /Src/Raptor.WebAPI/project.lock.json
 /Src/Raptor.WebAPI/project.fragment.lock.json
+/Src/Raptor.DataLayer.SQLCLR/Raptor.DataLayer.SQLCLR.dbmdl
+/Src/Raptor.DataLayer.SQLCLR/Raptor.DataLayer.SQLCLR.jfm

@@ -15,7 +15,7 @@
     </Page.DataContext>
 
     <Grid Style="{StaticResource GridPageBackground}">
-        <SplitView Grid.Row="1" PanePlacement="Right" x:Name="svLevel" DisplayMode="Overlay">
+        <SplitView PanePlacement="Right" x:Name="svLevel" DisplayMode="Overlay" PaneBackground="#3e3e3e">
             <SplitView.Content>
                 <Grid>
                     <Grid.RowDefinitions>
@@ -57,17 +57,17 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <controls:HeaderedTextBlock Grid.Row="0" Header="Level Name" Text="{Binding DetailItem.Name}" Orientation="Vertical" />
+                    <controls:HeaderedTextBlock Grid.Row="0" Style="{StaticResource FieldHeaderText}" Header="Level Name" Text="{Binding DetailItem.Name}" />
 
-                    <controls:HeaderedTextBlock Grid.Row="1" Header="Level Description" Text="{Binding DetailItem.LongDescription}" Orientation="Vertical" />
+                    <controls:HeaderedTextBlock Grid.Row="1" Style="{StaticResource FieldHeaderText}" Header="Level Description" Text="{Binding DetailItem.LongDescription}" />
 
                     <Grid Grid.Row="2">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
-                        
-                        <TextBlock Grid.Row="0" Text="Reviews" Style="{StaticResource TopRatedDetailReviewHeader}" />
+
+                        <controls:HeaderedTextBlock Grid.Row="0" Style="{StaticResource FieldHeaderText}" Header="Reviews" Text="" />
 
                         <ListView Grid.Row="1" ItemsSource="{Binding DetailItem.Reviews}">
                             <ListView.ItemTemplate>
