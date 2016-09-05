@@ -56,6 +56,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
@@ -75,8 +76,23 @@
 
                         <controls:HeaderedTextBlock Grid.Column="1" Header="DisLikes" Text="{Binding DetailItem.Dislikes}" />
                     </Grid>
-                    
+
                     <Grid Grid.Row="4">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <Button Grid.Column="0" FontSize="14" Background="Transparent" Foreground="White">
+                            <Glyphs UnicodeString="E104" />
+                        </Button>
+
+                        <Button Grid.Column="1" FontSize="14" Background="Transparent" Foreground="White">
+                            <Glyphs UnicodeString="E104" />
+                        </Button>
+                    </Grid>
+                    
+                    <Grid Grid.Row="5">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
