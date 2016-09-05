@@ -31,7 +31,25 @@
 	        CompactPaneLength="48"
 	        HamburgerHeight="48"
 	        IsPaneOpen="False">
-            <Frame Background="#2e2e2e" x:Name="fMain" />
+
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <Grid Grid.Row="0" Background="#3e3e3e" Margin="0,10,0,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <TextBlock HorizontalAlignment="Right" Grid.Column="0" Text="Welcome back User" Foreground="White" />
+                    <Glyphs Grid.Column="1" UnicodeString="E1E4" />
+                </Grid>
+                
+                <Frame Grid.Row="1" Background="#2e2e2e" x:Name="fMain" />
+            </Grid>
         </controls:HamburgerMenu>
     </Grid>
 </local:BasePage>
