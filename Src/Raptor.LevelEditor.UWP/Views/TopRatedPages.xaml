@@ -54,20 +54,35 @@
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
 
-                    <controls:HeaderedTextBlock Grid.Row="0" Style="{StaticResource FieldHeaderText}" Header="Level Name" Text="{Binding DetailItem.Name}" />
+                    <controls:HeaderedTextBlock Grid.Row="0" Header="Level Name" Text="{Binding DetailItem.Name}" />
 
-                    <controls:HeaderedTextBlock Grid.Row="1" Style="{StaticResource FieldHeaderText}" Header="Level Description" Text="{Binding DetailItem.LongDescription}" />
+                    <controls:HeaderedTextBlock Grid.Row="1" Header="Level Description" Text="{Binding DetailItem.LongDescription}" />
 
-                    <Grid Grid.Row="2">
+                    <controls:HeaderedTextBlock Grid.Row="2" Header="Number of Downloads" Text="{Binding DetailItem.NumDownloads}" />
+
+                    <Grid Grid.Row="3">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+
+                        <controls:HeaderedTextBlock Grid.Column="0" Header="Likes" Text="{Binding DetailItem.Likes}" />
+
+                        <controls:HeaderedTextBlock Grid.Column="1" Header="DisLikes" Text="{Binding DetailItem.Dislikes}" />
+                    </Grid>
+                    
+                    <Grid Grid.Row="4">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="Auto" />
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
 
-                        <controls:HeaderedTextBlock Grid.Row="0" Style="{StaticResource FieldHeaderText}" Header="Reviews" Text="" />
+                        <controls:HeaderedTextBlock Grid.Row="0" Header="Reviews" Text="" />
 
                         <ListView Grid.Row="1" ItemsSource="{Binding DetailItem.Reviews}">
                             <ListView.ItemTemplate>

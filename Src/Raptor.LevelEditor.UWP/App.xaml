@@ -7,6 +7,12 @@
     RequestedTheme="Light">
 
     <Application.Resources>
+        <Style TargetType="Grid" x:Key="HeaderBar">
+            <Setter Property="Background" Value="#3e3e3e" />
+            <Setter Property="Padding" Value="0,5,0,5" />
+            <Setter Property="Margin" Value="10,10,10,10" />
+        </Style>
+        
         <Style TargetType="Grid" x:Key="GridPageBackground">
             <Setter Property="Background" Value="#2e2e2e" />
         </Style>
@@ -45,9 +51,20 @@
             <Setter Property="Background" Value="#3e3e3e" />
         </Style>
 
-        <Style TargetType="controls:HeaderedTextBlock" x:Key="FieldHeaderText">
-            <Setter Property="Foreground" Value="#9e9e9e" />
+        <Style TargetType="controls:HeaderedTextBlock">
+            <Setter Property="Margin" Value="0,0,0,10"/>
+            <Setter Property="TextStyle" Value="{StaticResource FieldContentText}" />
+            <Setter Property="HeaderStyle" Value="{StaticResource FieldHeaderText}" />
             <Setter Property="Orientation" Value="Vertical" />
+        </Style>
+        
+        <Style TargetType="TextBlock" x:Key="FieldHeaderText">
+            <Setter Property="Foreground" Value="#9e9e9e" />
+            <Setter Property="Margin" Value="0,0,10,0" />
+        </Style>
+
+        <Style TargetType="TextBlock" x:Key="FieldContentText">
+            <Setter Property="Foreground" Value="White" />
         </Style>
     </Application.Resources>
 </Application>

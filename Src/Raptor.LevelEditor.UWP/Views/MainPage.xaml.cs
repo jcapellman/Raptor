@@ -14,18 +14,22 @@ namespace Raptor.LevelEditor.UWP.Views {
         public Type PageType { get; set; }
 
         public static List<MenuItem> GetMainItems() {
-            var items = new List<MenuItem>();
-
-            items.Add(new MenuItem() { Icon = Symbol.Contact, Name = "Your Levels", PageType = typeof(Views.YourLevelsPage) });
-            items.Add(new MenuItem() { Icon = Symbol.World, Name = "Top Rated Levels", PageType = typeof(Views.TopRatedLevelsPages) });
-            items.Add(new MenuItem() { Icon = Symbol.Setting, Name = "Settings", PageType = typeof(Views.SettingsPage) });
-
+            var items = new List<MenuItem> {
+                new MenuItem() {Icon = Symbol.Contact, Name = "Your Levels", PageType = typeof (Views.YourLevelsPage)},
+                new MenuItem() {
+                    Icon = Symbol.World,
+                    Name = "Top Rated Levels",
+                    PageType = typeof (Views.TopRatedLevelsPages)
+                },
+                new MenuItem() {Icon = Symbol.Setting, Name = "Settings", PageType = typeof (Views.SettingsPage)}
+            };
+            
             return items;
-        }        
+        }
     }
 
-    public sealed partial class MainPage {        
-        private MainPageViewModel viewModel => (MainPageViewModel) DataContext;
+    public sealed partial class MainPage {
+        private MainPageViewModel viewModel => (MainPageViewModel)DataContext;
 
         public MainPage() {
             this.InitializeComponent();
@@ -41,7 +45,7 @@ namespace Raptor.LevelEditor.UWP.Views {
             if (clickedItem == null) {
                 return;
             }
-            
+
             fMain.Navigate(clickedItem.PageType);
         }
     }

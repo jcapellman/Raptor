@@ -1,4 +1,5 @@
 ﻿using System.Threading.Tasks;
+using Windows.UI.Xaml;
 using Raptor.PCL.WebAPI.Transports.Users;
 
 namespace Raptor.LevelEditor.UWP.ViewModels {
@@ -22,6 +23,9 @@ namespace Raptor.LevelEditor.UWP.ViewModels {
                 return $"Welcome {username}";
             }
         }
+
+        public Visibility CheckUser(UserResponseItem user) =>
+            (user != null ? Visibility.Visible : Visibility.Collapsed);
 
         public async Task<bool> LoadData() {
             IsOnline = App.HasInternet;
