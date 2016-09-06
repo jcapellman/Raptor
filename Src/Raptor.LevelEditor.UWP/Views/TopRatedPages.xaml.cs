@@ -5,7 +5,8 @@ using Raptor.LevelEditor.UWP.ViewModels;
 using Raptor.PCL.WebAPI.Transports.LevelCreationBrowser;
 
 namespace Raptor.LevelEditor.UWP.Views {
-    public sealed partial class TopRatedLevelsPages {
+    public sealed partial class TopRatedLevelsPages
+    {
         private TopRatedPageViewModel viewModel => (TopRatedPageViewModel)DataContext;
 
         public TopRatedLevelsPages() {

@@ -1,5 +1,7 @@
 ﻿using System.Threading.Tasks;
+
 using Windows.UI.Xaml;
+
 using Raptor.PCL.WebAPI.Transports.Users;
 
 namespace Raptor.LevelEditor.UWP.ViewModels {
@@ -24,7 +26,7 @@ namespace Raptor.LevelEditor.UWP.ViewModels {
             }
         }
 
-        public Visibility CheckUser(UserResponseItem user) =>
+        public static Visibility CheckUser(UserResponseItem user) =>
             (user != null ? Visibility.Visible : Visibility.Collapsed);
 
         public async Task<bool> LoadData() {

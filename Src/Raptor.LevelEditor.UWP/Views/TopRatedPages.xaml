@@ -84,11 +84,21 @@
                         </Grid.ColumnDefinitions>
                         
                         <Button Grid.Column="0" FontSize="14" Background="Transparent" Foreground="White">
-                            <Glyphs UnicodeString="E104" />
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical">
+                                    <SymbolIcon Symbol="Add" />
+                                    <TextBlock Text="Add to Levels" Style="{StaticResource CaptionTextBlockStyle}" />
+                                </StackPanel>
+                            </Button.Content>
                         </Button>
 
                         <Button Grid.Column="1" FontSize="14" Background="Transparent" Foreground="White">
-                            <Glyphs UnicodeString="E104" />
+                            <Button.Content>
+                                <StackPanel Orientation="Vertical">
+                                    <SymbolIcon Symbol="ReShare"  />
+                                    <TextBlock Text="Share" Style="{StaticResource CaptionTextBlockStyle}" />
+                                </StackPanel>
+                            </Button.Content>
                         </Button>
                     </Grid>
                     
