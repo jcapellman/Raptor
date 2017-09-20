@@ -1,8 +1,8 @@
 # Raptor
 
-Raptor is a cross platform game using MonoGame going after the 90s vertical arcade shooter.
+Raptor is a cross platform game using MonoGame and ASP.NET Core going after the 90s vertical arcade shooter.
 
-Note: Now requires VS 15 Preview 4 or VS 2015 Update 3 to compile cleanly
+Note: Now requires Visual Studio 2017 (Tested on 15.4 Preview 2.0)
 
 ## Build Status
 
