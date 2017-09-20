@@ -2,7 +2,7 @@
 
 using Windows.UI.Xaml;
 
-using Raptor.PCL.WebAPI.Transports.Users;
+using Raptor.Library.WebAPI.Transports.Users;
 
 namespace Raptor.LevelEditor.UWP.ViewModels {
     public class MainPageViewModel : BaseViewModel {

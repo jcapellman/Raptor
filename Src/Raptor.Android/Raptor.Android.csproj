@@ -19,7 +19,7 @@
     <AndroidSupportedAbis>armeabi-v7a%3bx86</AndroidSupportedAbis>
     <AndroidStoreUncompressedFileExtensions>.m4a</AndroidStoreUncompressedFileExtensions>
     <MandroidI18n />
-    <TargetFrameworkVersion>v6.0</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v7.1</TargetFrameworkVersion>
     <MonoGamePlatform>Android</MonoGamePlatform>
     <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
     <AndroidUseLatestPlatformSdk>True</AndroidUseLatestPlatformSdk>
@@ -108,12 +108,6 @@
     <None Include="Properties\AndroidManifest.xml" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raptor.PCL\Raptor.PCL.csproj">
-      <Project>{dab9a1f7-616f-468f-a2d5-6bef8eecedc8}</Project>
-      <Name>Raptor.PCL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <XamarinComponentReference Include="azure-messaging">
       <Visible>False</Visible>
       <Version>1.2.5.0</Version>
@@ -122,6 +116,12 @@
       <Visible>False</Visible>
       <Version>1.0</Version>
     </XamarinComponentReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Raptor.Library\Raptor.Library.csproj">
+      <Project>{5416224c-88c1-4d26-adaf-7983bce04756}</Project>
+      <Name>Raptor.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Raptor.GameEngine\Raptor.GameEngine.projitems" Label="Shared" Condition="Exists('..\Raptor.GameEngine\Raptor.GameEngine.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Novell\Novell.MonoDroid.CSharp.targets" />

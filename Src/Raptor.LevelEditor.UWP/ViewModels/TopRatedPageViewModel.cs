@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using Raptor.PCL.Common;
-using Raptor.PCL.WebAPI.Handlers;
-using Raptor.PCL.WebAPI.Transports.LevelCreationBrowser;
+using Raptor.Library.Common;
+using Raptor.Library.WebAPI.Handlers;
+using Raptor.Library.WebAPI.Transports.LevelCreationBrowser;
 
 namespace Raptor.LevelEditor.UWP.ViewModels {
     public class TopRatedPageViewModel : BaseViewModel {

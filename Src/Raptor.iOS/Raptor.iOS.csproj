@@ -160,12 +160,6 @@
     <BundleResource Include="Resources\Icon-72.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raptor.PCL\Raptor.PCL.csproj">
-      <Project>{dab9a1f7-616f-468f-a2d5-6bef8eecedc8}</Project>
-      <Name>Raptor.PCL</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <BundleResource Include="Resources\Icon-76.png" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +173,12 @@
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Resources\Default-568h%402x.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Raptor.Library\Raptor.Library.csproj">
+      <Project>{5416224c-88c1-4d26-adaf-7983bce04756}</Project>
+      <Name>Raptor.Library</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\Raptor.GameEngine\Raptor.GameEngine.projitems" Label="Shared" Condition="Exists('..\Raptor.GameEngine\Raptor.GameEngine.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

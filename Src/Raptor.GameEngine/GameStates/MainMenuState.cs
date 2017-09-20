@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Raptor.GameEngine.Objects;
 using Raptor.GameEngine.Objects.Menu;
 
-using Raptor.PCL.Enums;
-using Raptor.PCL.Managers;
+using Raptor.Library.Enums;
+using Raptor.Library.Managers;
 
 namespace Raptor.GameEngine.GameStates {
     public class MainMenuState : BaseGameState {

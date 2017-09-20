@@ -144,10 +144,6 @@
     <Compile Include="Settings\GlobalSettings.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Raptor.PCL\Raptor.PCL.csproj">
-      <Project>{dab9a1f7-616f-468f-a2d5-6bef8eecedc8}</Project>
-      <Name>Raptor.PCL</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Raptor.WebAPI.DataLayer\Raptor.WebAPI.DataLayer.csproj">
       <Project>{c90ec04b-be0c-4474-b78c-2cc7659d3fbe}</Project>
       <Name>Raptor.WebAPI.DataLayer</Name>

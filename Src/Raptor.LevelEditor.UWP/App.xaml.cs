@@ -8,7 +8,7 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
 
 using Raptor.LevelEditor.UWP.Views;
-using Raptor.PCL.WebAPI.Transports.Users;
+using Raptor.Library.WebAPI.Transports.Users;
 
 namespace Raptor.LevelEditor.UWP {
     sealed partial class App : Application {

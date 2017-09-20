@@ -1,0 +1,13 @@
+﻿namespace Raptor.Library.Enums {
+    public enum WEBAPI_REQUESTS {
+        HIGHSCORE_ADD = 1,
+        HIGHSCORE_GET = 2,
+        SERVERCONTENT_GET = 3,
+        SERVERCONTENT_PULLDOWN = 4,
+        LEVELCREATION_UPDATE = 5,
+        LEVELCREATION_DELETE = 6,
+        LEVELCREATION_GET = 7,
+        LEVELCREATION_CREATE = 8,
+        LEVELCREATION_BROWSER_GET_LISTING = 9
+    }
+}

@@ -8,7 +8,7 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Raptor.GameEngine.Objects;
 using Raptor.GameEngine.Objects.Levels;
 using Raptor.GameEngine.Objects.Sprites;
-using Raptor.PCL.Enums;
+using Raptor.Library.Enums;
 
 namespace Raptor.GameEngine.GameStates {
     public class MainGameState : BaseGameState {

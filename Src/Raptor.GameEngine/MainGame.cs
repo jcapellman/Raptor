@@ -5,8 +5,8 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 using Raptor.GameEngine.GameStates;
-using Raptor.PCL.Enums;
-using Raptor.PCL.FileSystem;
+using Raptor.Library.Enums;
+using Raptor.Library.FileSystem;
 
 namespace Raptor.GameEngine {
     public class MainGame : Game {

@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Media;
 
-using Raptor.PCL.Enums;
+using Raptor.Library.Enums;
 
 namespace Raptor.GameEngine.GameStates {
     public abstract class BaseGameState {        
