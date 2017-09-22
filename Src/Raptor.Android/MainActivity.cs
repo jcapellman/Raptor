@@ -22,7 +22,7 @@ namespace Raptor.Android {
             GcmClient.CheckManifest(this);
             
             Log.Info("MainActivity", "Registering...");
-            GcmClient.Register(this, PCL.Common.Constants.SenderID);
+            GcmClient.Register(this, Library.Common.Constants.SenderID);
         }
 
         protected override void OnCreate(Bundle bundle) {
