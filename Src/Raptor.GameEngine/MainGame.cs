@@ -1,6 +1,3 @@
-using System;
-using System.Reflection;
-
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -15,7 +12,7 @@ namespace Raptor.GameEngine {
         private BaseGameState _currentGameState;
         
         public MainGame() {
-          //  GlobalGame.FileSystem = fileSystem;
+            GlobalGame.FileSystem = fileSystem;
 
             _graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
