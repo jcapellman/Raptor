@@ -3,9 +3,9 @@ using System.Linq;
 
 using Microsoft.EntityFrameworkCore;
 
-using Raptor.PCL.Common;
-using Raptor.PCL.Enums;
-using Raptor.PCL.WebAPI.Transports.Content;
+using Raptor.Library.Common;
+using Raptor.Library.Enums;
+using Raptor.Library.WebAPI.Transports.Content;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.DataLayer.Entities;

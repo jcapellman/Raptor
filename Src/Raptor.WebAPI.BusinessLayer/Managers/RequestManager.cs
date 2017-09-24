@@ -1,6 +1,6 @@
 ﻿using System;
 
-using Raptor.PCL.Enums;
+using Raptor.Library.Enums;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.DataLayer.Entities;

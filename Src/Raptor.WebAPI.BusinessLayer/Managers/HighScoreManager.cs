@@ -3,8 +3,8 @@ using System.Linq;
 
 using Microsoft.EntityFrameworkCore;
 
-using Raptor.PCL.Common;
-using Raptor.PCL.WebAPI.Transports.HighScore;
+using Raptor.Library.Common;
+using Raptor.Library.WebAPI.Transports.HighScore;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.DataLayer.Entities;
