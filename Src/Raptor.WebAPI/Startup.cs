@@ -8,9 +8,12 @@ using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.CustomAttributes;
 using Raptor.WebAPI.Helpers;
 
-namespace Raptor.WebAPI {
-    public class Startup {
-        public Startup(IHostingEnvironment env) {
+namespace Raptor.WebAPI
+{
+    public class Startup
+    {
+        public Startup(IHostingEnvironment env)
+        {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
                 .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
@@ -20,7 +23,8 @@ namespace Raptor.WebAPI {
 
         public IConfigurationRoot Configuration { get; }
 
-        public void ConfigureServices(IServiceCollection services) {
+        public void ConfigureServices(IServiceCollection services)
+        {
             services.Configure<GlobalSettings>(Configuration.GetSection("GlobalSettings"));
             services.AddScoped<MemoryCacheHelper>();
 
@@ -30,9 +34,10 @@ namespace Raptor.WebAPI {
             services.AddScoped<Cachable>();
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+        {
             app.UseDeveloperExceptionPage();
-           
+
             app.UseMvc();
         }
     }
