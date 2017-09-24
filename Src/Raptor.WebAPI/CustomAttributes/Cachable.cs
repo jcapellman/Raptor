@@ -7,7 +7,7 @@ using Microsoft.Extensions.Options;
 
 using Newtonsoft.Json;
 
-using Raptor.PCL.Enums;
+using Raptor.Library.Enums;
 
 using Raptor.WebAPI.BusinessLayer.Settings;
 using Raptor.WebAPI.Helpers;

@@ -1,7 +1,7 @@
 ﻿using Microsoft.Extensions.Caching.Memory;
 
-using Raptor.PCL.Common;
-using Raptor.PCL.Enums;
+using Raptor.Library.Common;
+using Raptor.Library.Enums;
 
 namespace Raptor.WebAPI.Helpers {
     public class MemoryCacheHelper {

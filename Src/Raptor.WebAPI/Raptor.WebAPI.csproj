@@ -17,7 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Raptor.DataLayer.SQLCLR\Raptor.DataLayer.SQLCLR.sqlproj" />
     <ProjectReference Include="..\Raptor.Library\Raptor.Library.csproj" />
     <ProjectReference Include="..\Raptor.WebAPI.BusinessLayer\Raptor.WebAPI.BusinessLayer.csproj" />
   </ItemGroup>

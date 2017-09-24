@@ -1,8 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Caching.Memory;
 
-using Raptor.PCL.Common;
-using Raptor.PCL.Enums;
+using Raptor.Library.Common;
+using Raptor.Library.Enums;
 
 using Raptor.WebAPI.BusinessLayer.Managers;
 using Raptor.WebAPI.BusinessLayer.Settings;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net.Mail;
-using Raptor.PCL.Common;
+
+using Raptor.Library.Common;
 
 namespace Raptor.WebAPI.Helpers {
     public class EmailClient {
