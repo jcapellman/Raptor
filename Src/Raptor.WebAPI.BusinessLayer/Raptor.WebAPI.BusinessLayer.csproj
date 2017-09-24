@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Raptor.Library\Raptor.Library.csproj" />
+    <ProjectReference Include="..\Raptor.WebAPI.DataLayer\Raptor.WebAPI.DataLayer.csproj" />
   </ItemGroup>
 
 </Project>
