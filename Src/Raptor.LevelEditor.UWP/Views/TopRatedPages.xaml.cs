@@ -2,7 +2,7 @@
 using Windows.UI.Xaml.Navigation;
 
 using Raptor.LevelEditor.UWP.ViewModels;
-using Raptor.PCL.WebAPI.Transports.LevelCreationBrowser;
+using Raptor.Library.WebAPI.Transports.LevelCreationBrowser;
 
 namespace Raptor.LevelEditor.UWP.Views {
     public sealed partial class TopRatedLevelsPages
